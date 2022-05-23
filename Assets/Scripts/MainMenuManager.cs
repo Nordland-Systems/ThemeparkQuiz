@@ -19,6 +19,15 @@ namespace ThemeparkQuiz
             backgroundImage.sprite = backgroundSprites[random.Next(backgroundSprites.Length)];
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Debug.Log("Quitting...");
+                Application.Quit();
+            }
+        }
+
         public void StartGame()
         {
             SceneManager.LoadScene(GameScenes.PARKOVERVIEW);

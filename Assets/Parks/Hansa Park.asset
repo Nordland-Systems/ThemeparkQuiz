@@ -16,13 +16,106 @@ MonoBehaviour:
   iconSprite: {fileID: 21300000, guid: c29c62c3a24d171458e5488e26cc017e, type: 3}
   backgroundSprite: {fileID: 21300000, guid: 91b618b4a910f5a47aabd82acb91034e, type: 3}
   coasterTitles:
-  - Fluch von Novgorod
-  - "Schwur des K\xE4rnan"
+  - Awildas Abenteuerfahrt
+  - Barracuda Slide
+  - Blumenmeer-Bootsfahrt
   - Crazy Mine
+  - Der kleine Zar
+  - "Der Schwur des K\xE4rnan"
+  - Die Schlange von Midgard
+  - Flucht von Novgorod
+  - Hansa-Park-Express
+  - Indian River
+  - Nessie
+  - Pony Post
+  - Royal Scotsman
+  - Safari-Jeeps
+  - "St\xF6rtebekers Kaperfahrt"
+  - Sturmfahrt der Drachenboote
+  - Super Splash
+  - Wildwasserfahrt - Der Wasserwolf am Ilmensee
   flatridesTitles:
+  - Abenteuerfamilienpfad
+  - Awildas Ausguck
+  - "Ball- und H\xFCpfhaus"
+  - Barcos del Mar
+  - "B\xE4renh\xF6hle"
+  - "B\xE4renschlitten"
+  - Baumhaus "Apachen-Lodge"
+  - Beach-Trucks im Piraten-Camp
+  - Camino del Mar
+  - "Caravelle Nin\xE3"
+  - Cinema Fantastico 4D
+  - Dr. Livingstone's Safari-Flug
+  - Esel-Karren
+  - "Fliegender Holl\xE4nder"
+  - Flying Orcas
+  - Fondaco dei Tedeschi
+  - Gamble Hall
+  - Goldwaschen
+  - "H\xE4ngebr\xFCcke, Schwimm- und Wackelbr\xFCcke"
+  - Hanse-Bowl
+  - Hanse-Flieger
+  - Hanse-Karussell
+  - Highlander
+  - Historische Dampflok Nr. 8
+  - Hochseilgarten "Navajo-Trail"
+  - Holsteinturm
+  - "H\xFCpfberge"
   - "K\xE4rnapulten"
-  characterTitles: []
-  eventTitles: []
+  - Kentucky Derby
+  - Kinder-Schiffschaukel
+  - Kinder-Schminken
+  - Kletterwand
+  - Koggenfahrt
+  - "Kr\xE4uter- und Bauerngarten"
+  - "K\xFCstenmotorschiff \"Neuenfelde\""
+  - Lokomobile
+  - Luftikus
+  - Mini-Autos
+  - Die Tierkinder vom Peterhof
+  - Patio del Mar
+  - Turm vom Peterhof
+  - Piraten Camp
+  - Niedrigseilgarten
+  - Odins Luftreise
+  - Piratentaufe
+  - Postkutsche
+  - Pow Wow
+  - Regentanz
+  - Rutschen
+  - Dschungel-Jeep
+  - Shooting Gallery
+  - Space Scooter
+  - "Spanische G\xE4rten"
+  - Spiegelgalerie
+  - "St\xF6rtebekers Flossfahrt"
+  - "St\xF6rtebekers Leiter"
+  - Super-Trucks
+  - Tahiti Trail
+  - Trollspielplatz
+  - Wasserspielplatz Roanoke
+  - Wasserspielplatz Super Splash
+  - Wellenreiter
+  - Wikinger-Bootsfahrt
+  - Wikinger-Schiff "Viking Odin"
+  characterTitles:
+  - "Bronzeseel\xF6wen"
+  - Awilda
+  - Emmi
+  - Pingi
+  - Giraffe "Akira"
+  eventTitles:
+  - "Emmi, Pingi & Co sagen Hallo & Tsch\xFCss"
+  - Hansa-Park-Parade
+  - Laser- & Special Effekt Show
+  - Variete-Show
   areaTitles:
   - Die Reiche des Nordens
   - "New L\xFCbeck"
+  - Alter Jahrmarkt
+  defunctTitles:
+  - El Paso Express
+  - Fluch von Novgorod
+  - Rasender Roland
+  - Rio Dorado

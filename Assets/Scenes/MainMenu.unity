@@ -1563,8 +1563,20 @@ MonoBehaviour:
   backgroundImage: {fileID: 1497807051}
   backgroundSprites:
   - {fileID: 21300000, guid: 91b618b4a910f5a47aabd82acb91034e, type: 3}
+  - {fileID: 21300000, guid: 1cdef461742eebf4f8a129847ebd8ef4, type: 3}
+  - {fileID: 21300000, guid: d35f69ca5891ebc41ae8cda73362671f, type: 3}
+  - {fileID: 21300000, guid: ba4724d835cf0c0479bfb72ad7f21211, type: 3}
+  - {fileID: 21300000, guid: ba6e543c941c21548957e26952f95c4d, type: 3}
   - {fileID: 21300000, guid: 527f790f3bf570949b61269b68cf4b90, type: 3}
   - {fileID: 21300000, guid: dfeaf69089a671249b1c6215760c9aaf, type: 3}
+  - {fileID: 21300000, guid: 2ac3ccf6de9651746ac964588fb337b5, type: 3}
+  - {fileID: 21300000, guid: 7a71aa73c917d0744b1a1c2c615f54b9, type: 3}
+  - {fileID: 21300000, guid: 2d1b1d5b1cc72a3469361910bf0dfcbd, type: 3}
+  - {fileID: 21300000, guid: d49465a97f29c134e91bb37dca4b2a05, type: 3}
+  - {fileID: 21300000, guid: ffea0f0200536d14f89d6afc0b30c50e, type: 3}
+  - {fileID: 21300000, guid: d2c6d3ceea9760d4a90921905da21875, type: 3}
+  - {fileID: 21300000, guid: 1818e4fe7bec91240a86d492a95e9c89, type: 3}
+  - {fileID: 21300000, guid: 3883ab5015801254cae4e959deee034b, type: 3}
 --- !u!4 &1976166662
 Transform:
   m_ObjectHideFlags: 0

@@ -27,11 +27,11 @@ namespace ThemeparkQuiz
                     detailActive.isOn = settings.ParkEnabled;
                     break;
                 case WordTypes.Coaster:
-                    detailsTitleText.text = "Achterbahnen (" + parkList.CoasterTitles.Length + " Begriffe)";
+                    detailsTitleText.text = "Rides (" + parkList.CoasterTitles.Length + " Begriffe)";
                     detailActive.isOn = settings.CoastersEnabled;
                     break;
                 case WordTypes.Flatride:
-                    detailsTitleText.text = "Park (" + parkList.FlatridesTitles.Length + " Begriffe)";
+                    detailsTitleText.text = "Flatrides & Walkthroughs (" + parkList.FlatridesTitles.Length + " Begriffe)";
                     detailActive.isOn = settings.FlatridesEnabled;
                     break;
                 case WordTypes.Character:
@@ -45,6 +45,10 @@ namespace ThemeparkQuiz
                 case WordTypes.Area:
                     detailsTitleText.text = "Themenbereiche (" + parkList.AreaTitles.Length + " Begriffe)";
                     detailActive.isOn = settings.AreasEnabled;
+                    break;
+                case WordTypes.Defunct:
+                    detailsTitleText.text = "Ehemalige (" + parkList.DefunctTitles.Length + " Begriffe)";
+                    detailActive.isOn = settings.DefunctEnabled;
                     break;
             }
         }
@@ -72,6 +76,9 @@ namespace ThemeparkQuiz
                     break;
                 case WordTypes.Area:
                     overviewManager.ParkSettings[parkList].AreasEnabled = detailActive.isOn;
+                    break;
+                case WordTypes.Defunct:
+                    overviewManager.ParkSettings[parkList].DefunctEnabled = detailActive.isOn;
                     break;
             }
         }

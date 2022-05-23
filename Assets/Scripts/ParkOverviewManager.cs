@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ThemeparkQuiz;
 using TMPro;
@@ -28,6 +29,14 @@ public class ParkOverviewManager : MonoBehaviour
     {
         parkSettings = new Dictionary<WordList, ParkSettings>();
         PopulateList();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(GameScenes.MAINMENU);
+        }
     }
 
     private void PopulateList()

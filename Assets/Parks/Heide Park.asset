@@ -13,14 +13,51 @@ MonoBehaviour:
   m_Name: Heide Park
   m_EditorClassIdentifier: 
   title: Heide Park
-  iconSprite: {fileID: 0}
-  backgroundSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: e6dc45e99560d0b41a4736c4ead4b9bf, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: 527f790f3bf570949b61269b68cf4b90, type: 3}
   coasterTitles:
-  - "Flug der D\xE4monen"
-  - Limit
   - Big Loop
-  flatridesTitles: []
+  - Bobbahn
+  - Colossos - Kampf der Giganten
+  - Desert Race
+  - Drachengrotte
+  - "Flo\xDFfahrt"
+  - "Flug der D\xE4monen"
+  - Ghostbusters 5D
+  - Grottenblitz
+  - Heide Park Express
+  - Indy-Blitz
+  - "K\xE4pt'ns T\xF6rn"
+  - Krake
+  - Limit
+  - Monorail
+  - Mountain Rafting
+  - Oldtimer-Rundkurs
+  - Opa Pigs Zugfahrt
+  - Panoramabahn
+  - Schorschs Dino-Abenteuer
+  - ToPiLauLa-Schlacht
+  - Wildwasserbahn
+  flatridesTitles:
+  - Bounty
+  - Breakdance
+  - Dampfkarussell
+  - Grobians Wolkenspringer
+  - "Hicks Himmelsst\xFCrmer"
+  - La Ola
+  - Magic
+  - Nostalgiekarussell
+  - Peppas Ballonfahrt
+  - Peppas Bootsfahrt
+  - Peppas Haus
+  - Raffnuss & Taffnuss Wasserflieger
+  - Scream
+  - Screamie
+  - Western-Riesenrad
+  - "W\xFCstenflitzer"
   characterTitles: []
-  eventTitles: []
+  eventTitles:
+  - Peppa Meet & Greet
   areaTitles:
   - Land der Vergessenen
+  defunctTitles: []

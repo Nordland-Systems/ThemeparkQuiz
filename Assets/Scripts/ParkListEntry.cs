@@ -26,13 +26,19 @@ namespace ThemeparkQuiz
         public void PopulateEntry(WordList listEntry, ParkOverviewManager parkOverviewManager)
         {
             title = listEntry.name;
-            maxNumberOfWords = listEntry.CoasterTitles.Length
-                               + listEntry.FlatridesTitles.Length
-                               + listEntry.CharacterTitles.Length
-                               + listEntry.AreaTitles.Length
-                               + listEntry.EventTitles.Length
-                               + listEntry.DefunctTitles.Length
-                               + 1;//For the parkname itself
+            maxNumberOfWords += 1; //Parkname
+            if (listEntry.CoasterTitles.Length > 0)
+                maxNumberOfWords += listEntry.CoasterTitles.Length;
+            if (listEntry.FlatridesTitles.Length > 0)
+                maxNumberOfWords += listEntry.FlatridesTitles.Length;
+            if (listEntry.CharacterTitles.Length > 0)
+                maxNumberOfWords += listEntry.CharacterTitles.Length;
+            if (listEntry.AreaTitles.Length > 0)
+                maxNumberOfWords += listEntry.AreaTitles.Length;
+            if (listEntry.EventTitles.Length > 0)
+                maxNumberOfWords += listEntry.EventTitles.Length;
+            if (listEntry.DefunctTitles != null)
+                maxNumberOfWords += listEntry.DefunctTitles.Length;
             numberOfWordsText.text = "(" + activatedWords + " / " + maxNumberOfWords + " Begriffe)";
             titleText.text = title;
             this.parkOverviewManager = parkOverviewManager;
@@ -49,7 +55,7 @@ namespace ThemeparkQuiz
             }
         }
 
-        public void UpdateEntry()
+        private void UpdateEntry()
         {
             activatedWords = 0;
             if (parkOverviewManager.ParkSettings[wordList].ParkEnabled)
