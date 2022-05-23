@@ -17,6 +17,7 @@ namespace ThemeparkQuiz
         [SerializeField] private string[] characterTitles;
         [SerializeField] private string[] eventTitles;
         [SerializeField] private string[] areaTitles;
+        [SerializeField] private string[] defunctTitles;
 
         public string Title => title;
         public Sprite IconSprite => iconSprite;
@@ -26,5 +27,6 @@ namespace ThemeparkQuiz
         public string[] CharacterTitles => characterTitles;
         public string[] EventTitles => eventTitles;
         public string[] AreaTitles => areaTitles;
+        public string[] DefunctTitles => defunctTitles;
     }
 }

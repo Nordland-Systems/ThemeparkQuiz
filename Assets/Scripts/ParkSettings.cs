@@ -8,9 +8,10 @@
         private bool charactersEnabled;
         private bool eventsEnabled;
         private bool areasEnabled;
+        private bool defunctEnabled;
 
         public ParkSettings(bool parkEnabled, bool coastersEnabled, bool flatridesEnabled, bool charactersEnabled, bool eventsEnabled,
-            bool areasEnabled)
+            bool areasEnabled, bool defunctEnabled)
         {
             this.parkEnabled = parkEnabled;
             this.coastersEnabled = coastersEnabled;
@@ -18,6 +19,7 @@
             this.charactersEnabled = charactersEnabled;
             this.eventsEnabled = eventsEnabled;
             this.areasEnabled = areasEnabled;
+            this.defunctEnabled = defunctEnabled;
         }
 
         public bool ParkEnabled
@@ -54,6 +56,12 @@
         {
             get => areasEnabled;
             set => areasEnabled = value;
+        }
+
+        public bool DefunctEnabled
+        {
+            get => defunctEnabled;
+            set => defunctEnabled = value;
         }
     }
 }

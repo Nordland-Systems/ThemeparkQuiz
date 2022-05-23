@@ -66,13 +66,21 @@ namespace ThemeparkQuiz
                         words.Add(entry);
                     }
                 }
+                
+                if (parkSettings[park].DefunctEnabled)
+                {
+                    foreach (string entry in park.DefunctTitles)
+                    {
+                        words.Add(entry);
+                    }
+                }
             }
 
             words = words.OrderBy(a => random.Next()).ToList();
             CallNewWord();
         }
 
-        private void CallNewWord()
+        public void CallNewWord()
         {
             string newWord = "";
             if (words.Count > 0)

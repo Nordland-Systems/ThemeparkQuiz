@@ -7,6 +7,7 @@
         Flatride,
         Character,
         Event,
-        Area
+        Area,
+        Defunct
     }
 }

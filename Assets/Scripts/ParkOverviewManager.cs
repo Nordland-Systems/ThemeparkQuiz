@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using ThemeparkQuiz;
 using TMPro;
@@ -42,7 +41,8 @@ public class ParkOverviewManager : MonoBehaviour
                 p.FlatridesTitles.Length != 0,
                 p.CharacterTitles.Length != 0,
                 p.EventTitles.Length != 0,
-                p.AreaTitles.Length != 0
+                p.AreaTitles.Length != 0,
+                p.DefunctTitles.Length != 0
                 ));
         }
     }
@@ -82,6 +82,11 @@ public class ParkOverviewManager : MonoBehaviour
             ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
             details.PopulateDetail(listEntry,WordTypes.Area, parkSettings[listEntry], this);
         }
+        if (listEntry.DefunctTitles.Length != 0)
+        {
+            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
+            details.PopulateDetail(listEntry,WordTypes.Defunct, parkSettings[listEntry], this);
+        }
 
         parkDetailsTitle.text = listEntry.Title;
 
@@ -98,6 +103,7 @@ public class ParkOverviewManager : MonoBehaviour
             setting.Value.CharactersEnabled = true;
             setting.Value.EventsEnabled = true;
             setting.Value.AreasEnabled = true;
+            setting.Value.DefunctEnabled = true;
         }
     }
     
@@ -111,6 +117,7 @@ public class ParkOverviewManager : MonoBehaviour
             setting.Value.CharactersEnabled = false;
             setting.Value.EventsEnabled = false;
             setting.Value.AreasEnabled = false;
+            setting.Value.DefunctEnabled = false;
         }
     }
 

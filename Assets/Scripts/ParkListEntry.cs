@@ -31,6 +31,7 @@ namespace ThemeparkQuiz
                                + listEntry.CharacterTitles.Length
                                + listEntry.AreaTitles.Length
                                + listEntry.EventTitles.Length
+                               + listEntry.DefunctTitles.Length
                                + 1;//For the parkname itself
             numberOfWordsText.text = "(" + activatedWords + " / " + maxNumberOfWords + " Begriffe)";
             titleText.text = title;
@@ -63,6 +64,8 @@ namespace ThemeparkQuiz
                 activatedWords += wordList.EventTitles.Length;
             if (parkOverviewManager.ParkSettings[wordList].AreasEnabled)
                 activatedWords += wordList.AreaTitles.Length;
+            if (parkOverviewManager.ParkSettings[wordList].DefunctEnabled)
+                activatedWords += wordList.DefunctTitles.Length;
             
             if (activatedWords <= 0)
             {
