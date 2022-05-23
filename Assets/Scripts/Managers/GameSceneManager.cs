@@ -49,12 +49,12 @@ namespace ThemeparkQuiz
         {
             foreach (WordList park in parks)
             {
-                if (parkSettings[park].ParkEnabled)
+                if (parkSettings[park].EnabledWords[WordTypes.Park])
                 {
                     words.Add(new WordEntry(park.Title, park, WordTypes.Park));
                 }
 
-                if (parkSettings[park].CoastersEnabled)
+                if (parkSettings[park].EnabledWords[WordTypes.Coaster])
                 {
                     foreach (string entry in park.CoasterTitles)
                     {
@@ -62,7 +62,7 @@ namespace ThemeparkQuiz
                     }
                 }
                 
-                if (parkSettings[park].FlatridesEnabled)
+                if (parkSettings[park].EnabledWords[WordTypes.Flatride])
                 {
                     foreach (string entry in park.FlatridesTitles)
                     {
@@ -70,7 +70,15 @@ namespace ThemeparkQuiz
                     }
                 }
                 
-                if (parkSettings[park].CharactersEnabled)
+                if (parkSettings[park].EnabledWords[WordTypes.Walkthrough])
+                {
+                    foreach (string entry in park.WalkthroughTitles)
+                    {
+                        words.Add(new WordEntry(entry, park, WordTypes.Walkthrough));
+                    }
+                }
+                
+                if (parkSettings[park].EnabledWords[WordTypes.Character])
                 {
                     foreach (string entry in park.CharacterTitles)
                     {
@@ -78,7 +86,7 @@ namespace ThemeparkQuiz
                     }
                 }
                 
-                if (parkSettings[park].EventsEnabled)
+                if (parkSettings[park].EnabledWords[WordTypes.Event])
                 {
                     foreach (string entry in park.EventTitles)
                     {
@@ -86,7 +94,15 @@ namespace ThemeparkQuiz
                     }
                 }
                 
-                if (parkSettings[park].AreasEnabled)
+                if (parkSettings[park].EnabledWords[WordTypes.Show])
+                {
+                    foreach (string entry in park.ShowTitles)
+                    {
+                        words.Add(new WordEntry(entry, park, WordTypes.Show));
+                    }
+                }
+                
+                if (parkSettings[park].EnabledWords[WordTypes.Area])
                 {
                     foreach (string entry in park.AreaTitles)
                     {
@@ -94,11 +110,27 @@ namespace ThemeparkQuiz
                     }
                 }
                 
-                if (parkSettings[park].DefunctEnabled)
+                if (parkSettings[park].EnabledWords[WordTypes.ChangedName])
+                {
+                    foreach (string entry in park.ChangedNamesTitles)
+                    {
+                        words.Add(new WordEntry(entry, park, WordTypes.ChangedName));
+                    }
+                }
+                
+                if (parkSettings[park].EnabledWords[WordTypes.Defunct])
                 {
                     foreach (string entry in park.DefunctTitles)
                     {
                         words.Add(new WordEntry(entry, park, WordTypes.Defunct));
+                    }
+                }
+                
+                if (parkSettings[park].EnabledWords[WordTypes.Other])
+                {
+                    foreach (string entry in park.OthersTitles)
+                    {
+                        words.Add(new WordEntry(entry, park, WordTypes.Other));
                     }
                 }
             }

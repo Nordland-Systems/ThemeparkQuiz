@@ -15,11 +15,24 @@ MonoBehaviour:
   title: Europa-Park
   iconSprite: {fileID: 21300000, guid: ba29ccb15e5c5f944a5d4d4c114b0085, type: 3}
   backgroundSprite: {fileID: 21300000, guid: 3883ab5015801254cae4e959deee034b, type: 3}
+  Titles:
+  - sectionType: 0
+    entries:
+    - 
+    - 
+    - 
+  - sectionType: 1
+    entries:
+    - 
+    - 
+    - 
   coasterTitles:
   - Silverstar
   - Wodan
   flatridesTitles: []
+  walkthroughTitles: []
   characterTitles: []
   eventTitles: []
   areaTitles: []
+  changedNamesTitles: []
   defunctTitles: []

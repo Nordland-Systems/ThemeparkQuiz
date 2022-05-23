@@ -99,6 +99,7 @@ MonoBehaviour:
   - Wellenreiter
   - Wikinger-Bootsfahrt
   - Wikinger-Schiff "Viking Odin"
+  walkthroughTitles: []
   characterTitles:
   - "Bronzeseel\xF6wen"
   - Awilda
@@ -110,12 +111,15 @@ MonoBehaviour:
   - Hansa-Park-Parade
   - Laser- & Special Effekt Show
   - Variete-Show
+  showTitles: []
   areaTitles:
   - Die Reiche des Nordens
   - "New L\xFCbeck"
   - Alter Jahrmarkt
+  changedNamesTitles: []
   defunctTitles:
   - El Paso Express
   - Fluch von Novgorod
   - Rasender Roland
   - Rio Dorado
+  othersTitles: []

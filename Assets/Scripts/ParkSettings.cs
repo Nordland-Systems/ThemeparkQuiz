@@ -1,67 +1,50 @@
-﻿namespace ThemeparkQuiz
+﻿using System.Collections.Generic;
+using Unity.VisualScripting;
+
+namespace ThemeparkQuiz
 {
     public class ParkSettings
     {
-        private bool parkEnabled;
-        private bool coastersEnabled;
-        private bool flatridesEnabled;
-        private bool charactersEnabled;
-        private bool eventsEnabled;
-        private bool areasEnabled;
-        private bool defunctEnabled;
+        private Dictionary<WordTypes, bool> enabledWords;
 
-        public ParkSettings(bool parkEnabled, bool coastersEnabled, bool flatridesEnabled, bool charactersEnabled, bool eventsEnabled,
-            bool areasEnabled, bool defunctEnabled)
+        public ParkSettings(WordList list)
         {
-            this.parkEnabled = parkEnabled;
-            this.coastersEnabled = coastersEnabled;
-            this.flatridesEnabled = flatridesEnabled;
-            this.charactersEnabled = charactersEnabled;
-            this.eventsEnabled = eventsEnabled;
-            this.areasEnabled = areasEnabled;
-            this.defunctEnabled = defunctEnabled;
+            enabledWords = new Dictionary<WordTypes, bool>();
+            enabledWords[WordTypes.Area] = list.AreaTitles.Length > 0;
+            enabledWords[WordTypes.Park] = true;
+            enabledWords[WordTypes.Coaster] = list.CoasterTitles.Length > 0;
+            enabledWords[WordTypes.Flatride] = list.FlatridesTitles.Length > 0;
+            enabledWords[WordTypes.Walkthrough] = list.WalkthroughTitles.Length > 0;
+            enabledWords[WordTypes.Character] = list.CharacterTitles.Length > 0;
+            enabledWords[WordTypes.Event] = list.EventTitles.Length > 0;
+            enabledWords[WordTypes.Show] = list.ShowTitles.Length > 0;
+            enabledWords[WordTypes.Area] = list.AreaTitles.Length > 0;
+            enabledWords[WordTypes.ChangedName] = list.ChangedNamesTitles.Length > 0;
+            enabledWords[WordTypes.Defunct] = list.DefunctTitles.Length > 0;
+            enabledWords[WordTypes.Other] = list.OthersTitles.Length > 0;
         }
 
-        public bool ParkEnabled
+        public ParkSettings(bool parkEnabled, bool coastersEnabled, bool flatridesEnabled, bool walkthroughsEnabled, bool charactersEnabled, 
+            bool eventsEnabled, bool showsEnabled, bool areasEnabled, bool changedNameEnabled, bool defunctEnabled, bool othersEnabled)
         {
-            get => parkEnabled;
-            set => parkEnabled = value;
+            enabledWords = new Dictionary<WordTypes, bool>();
+            enabledWords[WordTypes.Park] = parkEnabled;
+            enabledWords[WordTypes.Coaster] = coastersEnabled;
+            enabledWords[WordTypes.Flatride] = flatridesEnabled;
+            enabledWords[WordTypes.Walkthrough] = walkthroughsEnabled;
+            enabledWords[WordTypes.Character] = charactersEnabled;
+            enabledWords[WordTypes.Event] = eventsEnabled;
+            enabledWords[WordTypes.Show] = showsEnabled;
+            enabledWords[WordTypes.Area] = areasEnabled;
+            enabledWords[WordTypes.ChangedName] = changedNameEnabled;
+            enabledWords[WordTypes.Defunct] = defunctEnabled;
+            enabledWords[WordTypes.Other] = othersEnabled;
         }
 
-        public bool CoastersEnabled
+        public Dictionary<WordTypes, bool> EnabledWords
         {
-            get => coastersEnabled;
-            set => coastersEnabled = value;
-        }
-
-        public bool FlatridesEnabled
-        {
-            get => flatridesEnabled;
-            set => flatridesEnabled = value;
-        }
-
-        public bool CharactersEnabled
-        {
-            get => charactersEnabled;
-            set => charactersEnabled = value;
-        }
-
-        public bool EventsEnabled
-        {
-            get => eventsEnabled;
-            set => eventsEnabled = value;
-        }
-
-        public bool AreasEnabled
-        {
-            get => areasEnabled;
-            set => areasEnabled = value;
-        }
-
-        public bool DefunctEnabled
-        {
-            get => defunctEnabled;
-            set => defunctEnabled = value;
+            get => enabledWords;
+            set => enabledWords = value;
         }
     }
 }

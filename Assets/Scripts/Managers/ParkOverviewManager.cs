@@ -45,14 +45,7 @@ public class ParkOverviewManager : MonoBehaviour
         {
             ParkListEntry ple = Instantiate(parkEntryPrefab, parkListHolder).GetComponent<ParkListEntry>();
             ple.PopulateEntry(p, this);
-            parkSettings.Add(p,new ParkSettings(true,
-                p.CoasterTitles.Length != 0, 
-                p.FlatridesTitles.Length != 0,
-                p.CharacterTitles.Length != 0,
-                p.EventTitles.Length != 0,
-                p.AreaTitles.Length != 0,
-                p.DefunctTitles.Length != 0
-                ));
+            parkSettings.Add(p,new ParkSettings(p));
         }
     }
 
@@ -76,6 +69,11 @@ public class ParkOverviewManager : MonoBehaviour
             ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
             details.PopulateDetail(listEntry,WordTypes.Flatride, parkSettings[listEntry], this);
         }
+        if (listEntry.WalkthroughTitles.Length != 0)
+        {
+            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
+            details.PopulateDetail(listEntry,WordTypes.Walkthrough, parkSettings[listEntry], this);
+        }
         if (listEntry.CharacterTitles.Length != 0)
         {
             ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
@@ -86,15 +84,30 @@ public class ParkOverviewManager : MonoBehaviour
             ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
             details.PopulateDetail(listEntry,WordTypes.Event, parkSettings[listEntry], this);
         }
+        if (listEntry.ShowTitles.Length != 0)
+        {
+            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
+            details.PopulateDetail(listEntry,WordTypes.Show, parkSettings[listEntry], this);
+        }
         if (listEntry.AreaTitles.Length != 0)
         {
             ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
             details.PopulateDetail(listEntry,WordTypes.Area, parkSettings[listEntry], this);
         }
+        if (listEntry.ChangedNamesTitles.Length != 0)
+        {
+            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
+            details.PopulateDetail(listEntry,WordTypes.ChangedName, parkSettings[listEntry], this);
+        }
         if (listEntry.DefunctTitles.Length != 0)
         {
             ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
             details.PopulateDetail(listEntry,WordTypes.Defunct, parkSettings[listEntry], this);
+        }
+        if (listEntry.OthersTitles.Length != 0)
+        {
+            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
+            details.PopulateDetail(listEntry,WordTypes.Other, parkSettings[listEntry], this);
         }
 
         parkDetailsTitle.text = listEntry.Title;
@@ -106,13 +119,10 @@ public class ParkOverviewManager : MonoBehaviour
     {
         foreach (KeyValuePair<WordList, ParkSettings> setting in parkSettings)
         {
-            setting.Value.ParkEnabled = true;
-            setting.Value.CoastersEnabled = true;
-            setting.Value.FlatridesEnabled = true;
-            setting.Value.CharactersEnabled = true;
-            setting.Value.EventsEnabled = true;
-            setting.Value.AreasEnabled = true;
-            setting.Value.DefunctEnabled = true;
+            foreach (KeyValuePair<WordTypes, bool> enabledWords in setting.Value.EnabledWords)
+            {
+                setting.Value.EnabledWords[enabledWords.Key] = true;
+            }
         }
     }
     
@@ -120,13 +130,10 @@ public class ParkOverviewManager : MonoBehaviour
     {
         foreach (KeyValuePair<WordList, ParkSettings> setting in parkSettings)
         {
-            setting.Value.ParkEnabled = false;
-            setting.Value.CoastersEnabled = false;
-            setting.Value.FlatridesEnabled = false;
-            setting.Value.CharactersEnabled = false;
-            setting.Value.EventsEnabled = false;
-            setting.Value.AreasEnabled = false;
-            setting.Value.DefunctEnabled = false;
+            foreach (KeyValuePair<WordTypes, bool> enabledWords in setting.Value.EnabledWords)
+            {
+                setting.Value.EnabledWords[enabledWords.Key] = false;
+            }
         }
     }
 
