@@ -14,6 +14,7 @@ namespace ThemeparkQuiz
         [SerializeField] private string title;
         [SerializeField] private Sprite iconSprite;
         [SerializeField] private Sprite backgroundSprite;
+        [SerializeField] private List<WordCategory> wordCategories;
         [Header("Words")]
         [SerializeField] private string[] coasterTitles;
         [SerializeField] private string[] flatridesTitles;

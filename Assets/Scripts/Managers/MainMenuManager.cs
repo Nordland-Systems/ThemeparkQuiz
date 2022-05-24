@@ -14,9 +14,9 @@ namespace ThemeparkQuiz
         private void Start()
         {
             Random random = new Random();
-            RectTransform imageRect = backgroundImage.rectTransform;
-            backgroundImage.GetComponent<AspectRatioFitter>().aspectRatio = imageRect.rect.width / imageRect.rect.height;
             backgroundImage.sprite = backgroundSprites[random.Next(backgroundSprites.Length)];
+            Rect imageRect = backgroundImage.rectTransform.rect;
+            backgroundImage.GetComponent<AspectRatioFitter>().aspectRatio = imageRect.width/imageRect.height;
         }
 
         private void Update()
