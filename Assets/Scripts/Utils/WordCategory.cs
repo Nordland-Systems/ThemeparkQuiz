@@ -8,5 +8,8 @@ namespace ThemeparkQuiz
     {
         [SerializeField] private WordTypes type;
         [SerializeField] private string[] words;
+
+        public WordTypes Type => type;
+        public string[] Words => words;
     }
 }

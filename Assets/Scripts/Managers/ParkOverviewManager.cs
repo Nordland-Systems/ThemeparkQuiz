@@ -55,59 +55,12 @@ public class ParkOverviewManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        
-        ParkDetailsEntry detailsA = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-        detailsA.PopulateDetail(listEntry,WordTypes.Park, parkSettings[listEntry], this);
 
-        if (listEntry.CoasterTitles.Length != 0)
+        foreach (WordCategory cat in listEntry.WordCategories)
         {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Coaster, parkSettings[listEntry], this);
-        }
-        if (listEntry.FlatridesTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Flatride, parkSettings[listEntry], this);
-        }
-        if (listEntry.WalkthroughTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Walkthrough, parkSettings[listEntry], this);
-        }
-        if (listEntry.CharacterTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Character, parkSettings[listEntry], this);
-        }
-        if (listEntry.EventTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Event, parkSettings[listEntry], this);
-        }
-        if (listEntry.ShowTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Show, parkSettings[listEntry], this);
-        }
-        if (listEntry.AreaTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Area, parkSettings[listEntry], this);
-        }
-        if (listEntry.ChangedNamesTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.ChangedName, parkSettings[listEntry], this);
-        }
-        if (listEntry.DefunctTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Defunct, parkSettings[listEntry], this);
-        }
-        if (listEntry.OthersTitles.Length != 0)
-        {
-            ParkDetailsEntry details = Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
-            details.PopulateDetail(listEntry,WordTypes.Other, parkSettings[listEntry], this);
+            ParkDetailsEntry details =
+                Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
+            details.PopulateDetail(listEntry, cat.Type, parkSettings[listEntry], this);
         }
 
         parkDetailsTitle.text = listEntry.Title;

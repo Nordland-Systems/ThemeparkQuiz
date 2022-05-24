@@ -15,6 +15,35 @@ MonoBehaviour:
   title: Hansa Park
   iconSprite: {fileID: 21300000, guid: c29c62c3a24d171458e5488e26cc017e, type: 3}
   backgroundSprite: {fileID: 21300000, guid: 91b618b4a910f5a47aabd82acb91034e, type: 3}
+  wordCategories:
+  - type: 0
+    words:
+    - Hansa Park
+  - type: 1
+    words:
+    - Awildas Abenteuerfahrt
+    - Barracuda Slide
+    - Blumenmeer-Bootsfahrt
+    - Crazy Mine
+    - Der kleine Zar
+    - "Der Schwur des K\xE4rnan"
+    - Die Schlange von Midgard
+    - Flucht von Novgorod
+    - Hansa-Park-Express
+    - Indian River
+    - Nessie
+    - Pony Post
+    - Royal Scotsman
+    - Safari-Jeeps
+    - "St\xF6rtebekers Kaperfahrt"
+    - Sturmfahrt der Drachenboote
+    - Super Splash
+    - Wildwasserfahrt - Der Wasserwolf am Ilmensee
+  - type: 2
+    words:
+    - Abenteuerfamilienpfad
+    - Awildas Ausguck
+    - "Ball- und H\xFCpfhaus"
   coasterTitles:
   - Awildas Abenteuerfahrt
   - Barracuda Slide

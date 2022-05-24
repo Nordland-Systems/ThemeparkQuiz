@@ -18,28 +18,5 @@ namespace ThemeparkQuiz
             this.park = park;
             this.category = category;
         }
-
-        public string getCategoryName()
-        {
-            switch (category)
-            {
-                default:
-                    return category.ToString();
-                case WordTypes.Park:
-                    return "Park";
-                case WordTypes.Coaster:
-                    return "Achterbahn";
-                case WordTypes.Flatride:
-                    return "Flatride";
-                case WordTypes.Character:
-                    return "Charakter";
-                case WordTypes.Event:
-                    return "Event";
-                case WordTypes.Area:
-                    return "Themenbereich";
-                case WordTypes.Defunct:
-                    return "Ehemalige";
-            }
-        }
     }
 }

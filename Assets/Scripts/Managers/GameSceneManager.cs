@@ -49,88 +49,14 @@ namespace ThemeparkQuiz
         {
             foreach (WordList park in parks)
             {
-                if (parkSettings[park].EnabledWords[WordTypes.Park])
+                foreach (WordCategory cat in park.WordCategories)
                 {
-                    words.Add(new WordEntry(park.Title, park, WordTypes.Park));
-                }
-
-                if (parkSettings[park].EnabledWords[WordTypes.Coaster])
-                {
-                    foreach (string entry in park.CoasterTitles)
+                    if (parkSettings[park].EnabledWords[cat.Type])
                     {
-                        words.Add(new WordEntry(entry, park, WordTypes.Coaster));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.Flatride])
-                {
-                    foreach (string entry in park.FlatridesTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.Flatride));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.Walkthrough])
-                {
-                    foreach (string entry in park.WalkthroughTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.Walkthrough));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.Character])
-                {
-                    foreach (string entry in park.CharacterTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.Character));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.Event])
-                {
-                    foreach (string entry in park.EventTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.Event));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.Show])
-                {
-                    foreach (string entry in park.ShowTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.Show));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.Area])
-                {
-                    foreach (string entry in park.AreaTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.Area));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.ChangedName])
-                {
-                    foreach (string entry in park.ChangedNamesTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.ChangedName));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.Defunct])
-                {
-                    foreach (string entry in park.DefunctTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.Defunct));
-                    }
-                }
-                
-                if (parkSettings[park].EnabledWords[WordTypes.Other])
-                {
-                    foreach (string entry in park.OthersTitles)
-                    {
-                        words.Add(new WordEntry(entry, park, WordTypes.Other));
+                        foreach (string entry in cat.Words)
+                        {
+                            words.Add(new WordEntry(entry, park, cat.Type));
+                        }
                     }
                 }
             }
@@ -145,7 +71,7 @@ namespace ThemeparkQuiz
                 WordEntry newWord = words[^1];
                 
                 wordText.text = newWord.word;
-                wordDescription.text = newWord.park.Title + " (" + newWord.getCategoryName() + ")";
+                wordDescription.text = newWord.park.Title + " (" + newWord.category.GetNameSingular() + ")";
                 if (newWord.park.BackgroundSprite != null)
                 {
                     background.sprite = newWord.park.BackgroundSprite;
