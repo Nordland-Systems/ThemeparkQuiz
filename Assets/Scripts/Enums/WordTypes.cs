@@ -4,6 +4,8 @@
     {
         Park,
         Coaster,
+        Trackride,
+        Waterride,
         Flatride,
         Walkthrough,
         Character,
@@ -12,6 +14,7 @@
         Area,
         ChangedName,
         Defunct,
+        Restaurant,
         Other
     }
 
@@ -24,7 +27,11 @@
                 default:
                     return "ERROR";
                 case WordTypes.Coaster:
-                    return "Fahrt";
+                    return "Achterbahn";
+                case WordTypes.Trackride:
+                    return "Schienenfahrgeschäft";
+                case WordTypes.Waterride:
+                    return "Wasserbahn";
                 case WordTypes.Flatride:
                     return "Flatride";
                 case WordTypes.Walkthrough:
@@ -43,6 +50,10 @@
                     return "Ehemalig";
                 case WordTypes.Show:
                     return "Show";
+                case WordTypes.Restaurant:
+                    return "Restaurant";
+                case WordTypes.Other:
+                    return "Anderes";
             }
         }
         
@@ -53,7 +64,11 @@
                 default:
                     return "ERROR";
                 case WordTypes.Coaster:
-                    return "Fahrten";
+                    return "Achterbahnen";
+                case WordTypes.Trackride:
+                    return "Schienenfahrgeschäfte";
+                case WordTypes.Waterride:
+                    return "Wasserbahnen";
                 case WordTypes.Flatride:
                     return "Flatrides";
                 case WordTypes.Walkthrough:
@@ -72,6 +87,10 @@
                     return "Ehemalige";
                 case WordTypes.Show:
                     return "Shows";
+                case WordTypes.Restaurant:
+                    return "Restaurants";
+                case WordTypes.Other:
+                    return "Andere";
             }
         }
     }

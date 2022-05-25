@@ -21,134 +21,161 @@ MonoBehaviour:
     - Hansa Park
   - type: 1
     words:
-    - Awildas Abenteuerfahrt
-    - Barracuda Slide
-    - Blumenmeer-Bootsfahrt
     - Crazy Mine
     - Der kleine Zar
     - "Der Schwur des K\xE4rnan"
     - Die Schlange von Midgard
     - Flucht von Novgorod
-    - Hansa-Park-Express
-    - Indian River
     - Nessie
-    - Pony Post
     - Royal Scotsman
-    - Safari-Jeeps
+  - type: 3
+    words:
+    - Awildas Abenteuerfahrt
+    - Barracuda Slide
+    - Blumenmeer-Bootsfahrt
+    - Indian River
     - "St\xF6rtebekers Kaperfahrt"
     - Sturmfahrt der Drachenboote
     - Super Splash
     - Wildwasserfahrt - Der Wasserwolf am Ilmensee
-  - type: 2
+  - type: 5
     words:
     - Abenteuerfamilienpfad
-    - Awildas Ausguck
     - "Ball- und H\xFCpfhaus"
-  coasterTitles:
-  - Awildas Abenteuerfahrt
-  - Barracuda Slide
-  - Blumenmeer-Bootsfahrt
-  - Crazy Mine
-  - Der kleine Zar
-  - "Der Schwur des K\xE4rnan"
-  - Die Schlange von Midgard
-  - Flucht von Novgorod
-  - Hansa-Park-Express
-  - Indian River
-  - Nessie
-  - Pony Post
-  - Royal Scotsman
-  - Safari-Jeeps
-  - "St\xF6rtebekers Kaperfahrt"
-  - Sturmfahrt der Drachenboote
-  - Super Splash
-  - Wildwasserfahrt - Der Wasserwolf am Ilmensee
-  flatridesTitles:
-  - Abenteuerfamilienpfad
-  - Awildas Ausguck
-  - "Ball- und H\xFCpfhaus"
-  - Barcos del Mar
-  - "B\xE4renh\xF6hle"
-  - "B\xE4renschlitten"
-  - Baumhaus "Apachen-Lodge"
-  - Beach-Trucks im Piraten-Camp
-  - Camino del Mar
-  - "Caravelle Nin\xE3"
-  - Cinema Fantastico 4D
-  - Dr. Livingstone's Safari-Flug
-  - Esel-Karren
-  - "Fliegender Holl\xE4nder"
-  - Flying Orcas
-  - Fondaco dei Tedeschi
-  - Gamble Hall
-  - Goldwaschen
-  - "H\xE4ngebr\xFCcke, Schwimm- und Wackelbr\xFCcke"
-  - Hanse-Bowl
-  - Hanse-Flieger
-  - Hanse-Karussell
-  - Highlander
-  - Historische Dampflok Nr. 8
-  - Hochseilgarten "Navajo-Trail"
-  - Holsteinturm
-  - "H\xFCpfberge"
-  - "K\xE4rnapulten"
-  - Kentucky Derby
-  - Kinder-Schiffschaukel
-  - Kinder-Schminken
-  - Kletterwand
-  - Koggenfahrt
-  - "Kr\xE4uter- und Bauerngarten"
-  - "K\xFCstenmotorschiff \"Neuenfelde\""
-  - Lokomobile
-  - Luftikus
-  - Mini-Autos
-  - Die Tierkinder vom Peterhof
-  - Patio del Mar
-  - Turm vom Peterhof
-  - Piraten Camp
-  - Niedrigseilgarten
-  - Odins Luftreise
-  - Piratentaufe
-  - Postkutsche
-  - Pow Wow
-  - Regentanz
-  - Rutschen
-  - Dschungel-Jeep
-  - Shooting Gallery
-  - Space Scooter
-  - "Spanische G\xE4rten"
-  - Spiegelgalerie
-  - "St\xF6rtebekers Flossfahrt"
-  - "St\xF6rtebekers Leiter"
-  - Super-Trucks
-  - Tahiti Trail
-  - Trollspielplatz
-  - Wasserspielplatz Roanoke
-  - Wasserspielplatz Super Splash
-  - Wellenreiter
-  - Wikinger-Bootsfahrt
-  - Wikinger-Schiff "Viking Odin"
-  walkthroughTitles: []
-  characterTitles:
-  - "Bronzeseel\xF6wen"
-  - Awilda
-  - Emmi
-  - Pingi
-  - Giraffe "Akira"
-  eventTitles:
-  - "Emmi, Pingi & Co sagen Hallo & Tsch\xFCss"
-  - Hansa-Park-Parade
-  - Laser- & Special Effekt Show
-  - Variete-Show
-  showTitles: []
-  areaTitles:
-  - Die Reiche des Nordens
-  - "New L\xFCbeck"
-  - Alter Jahrmarkt
-  changedNamesTitles: []
-  defunctTitles:
-  - El Paso Express
-  - Fluch von Novgorod
-  - Rasender Roland
-  - Rio Dorado
-  othersTitles: []
+    - "B\xE4renh\xF6hle"
+    - Baumhaus "Apachen-Lodge"
+    - Camino del Mar
+    - "Caravelle Ni\xF1a"
+    - Fondaco Dei Tedeschi
+    - "H\xE4ngebr\xFCcke, Schwimm- und Wackelbr\xFCcke"
+    - Hochseilgarten "Navajo-Trail"
+    - "Kr\xE4uter- und Bauerngarten"
+    - "K\xFCstenmotorschiff \"Neuenfelde\""
+    - Patio del Mar
+    - Piraten Camp
+    - Niedrigseilgarten
+    - Piratentaufe
+    - Regentanz
+    - "Spanische G\xE4rten"
+    - Spiegelgalerie
+    - "St\xF6rtebekers Flossfahrt"
+    - Tahiti Trail
+    - Trollspielplatz
+    - Wasserspielplatz Roanoke
+    - Wasserspielplatz Super Splash
+  - type: 8
+    words:
+    - Aquarena
+    - Cinema Fantastico 4D
+    - "Emmi, Pingi & Co sagen Hallo & Tsch\xFCss"
+    - "Freilichtb\xFChne \"Alter Jahrmarkt\""
+    - Hansa-Park-Parade
+    - Laser- & Special Effekt Show
+    - "Variet\xE9-Show"
+  - type: 6
+    words:
+    - Awilda
+    - Emmi
+    - Pingi
+    - Giraffe "Akira"
+  - type: 4
+    words:
+    - Awildas Ausguck
+    - Barcos del Mar
+    - Beach-Trucks im Piraten-Camp
+    - Dr. Livingstone's Safari-Flug
+    - "Fliegender Holl\xE4nder"
+    - Flying Orcas
+    - Hanse-Flieger
+    - Hanse-Karussell
+    - Highlander
+    - Holsteinturm
+    - "K\xE4rnapulten"
+    - Kinder-Schiffschaukel
+    - Koggenfahrt
+    - Luftikus
+    - Mini-Autos
+    - Die Tierkinder vom Peterhof
+    - Turm vom Peterhof
+    - Odins Luftreise
+    - Pow Wow
+    - Space Scooter
+    - Wellenreiter
+    - Wikinger-Bootsfahrt
+  - type: 12
+    words:
+    - "B\xE4renschlitten"
+    - "Bronzeseel\xF6wen"
+    - Dschungel-Jeep
+    - Esel-Karren
+    - Gamble Hall
+    - Giraffe "Akira"
+    - Goldwaschen
+    - Hanse-Bowl
+    - Historische Dampflok Nr. 8
+    - "H\xFCpfberge"
+    - Kentucky Derby
+    - Kinder-Schminken
+    - Kletterwand
+    - Lokomobile
+    - Postkutsche
+    - Rutschen
+    - Shooting Gallery
+    - "St\xF6rtebekers Leiter"
+    - Super-Trucks
+    - Wikinger-Schiff "Viking Odin"
+  - type: 10
+    words:
+    - Fluch von Novgorod
+    - Rasender Roland
+    - Rio-Dorado
+  - type: 2
+    words:
+    - Hansa-Park-Express
+    - Pony Post
+    - Safari-Jeeps
+  - type: 9
+    words:
+    - Abenteuerland
+    - Alter Jahrmarkt
+    - Bezauberndes Britannien
+    - Die Reiche des Nordens
+    - Fiesta del Mar
+    - Hansa-Garten
+    - Hanse in Europa
+    - "New L\xFCbeck"
+    - Peterhof von Novgorod
+    - Wasserspass
+    - Wikingerland
+  - type: 7
+    words:
+    - Ostern
+    - "Fr\xFChjahrsbl\xFCte"
+    - "Sommerbl\xFCte"
+    - Zeit der Schattenwesen
+    - Herbstzauber am Meer
+  - type: 12
+    words:
+    - "Blockh\xFCtte Kungstorget"
+    - Bodega del Mar
+    - Brezelshop
+    - "Caf\xE9 & Bar dei Tedeshi"
+    - "Cr\xEAperie"
+    - Elin's Vafflejern
+    - "Hanse-Caf\xE9"
+    - Joe's Grill 'n BBQ
+    - Kiosk "Kleiner Zar"
+    - "Kiosk am Fliegenden Holl\xE4nder"
+    - Kiosk am Hanse-Flieger
+    - Kiosk im Peterhof
+    - Kiosk im Wikingerland
+    - Mandelkutsche
+    - Miner's Camp
+    - Restaurant Weltumsegler
+    - Ristorante L'Artista
+    - Riva Bar
+    - Saloon "New Chance"
+    - The Filling Station
+    - Waffelbackstube
+    - Zeebrugge
+    - "Zuckerwatte, Liebes\xE4pfel und gebrannte Mandeln"

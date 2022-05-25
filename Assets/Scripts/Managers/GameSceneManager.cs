@@ -108,7 +108,7 @@ namespace ThemeparkQuiz
                 }
                 else
                 {
-                    DOTween.To(() => countdownNumbers, x => countdownNumbers = x, 0, 3).OnComplete(StartGame);
+                    DOTween.To(() => countdownNumbers, x => countdownNumbers = x, 0, 4).OnComplete(StartGame);
                     wordText.text = countdownNumbers.ToString();
                     currentGameState = GameStates.PREGAME;
                     wordDescription.text = "";
@@ -148,7 +148,7 @@ namespace ThemeparkQuiz
                 }
                 else
                 {
-                    background.DOColor(new Color(0.2f,0.2f,0.2f), 1f).OnComplete(CallNewWord);
+                    background.DOColor(new Color(0.2f,0.2f,0.2f), 0.5f).OnComplete(CallNewWord);
                     currentGameState = GameStates.INGAME;
                 }
             }

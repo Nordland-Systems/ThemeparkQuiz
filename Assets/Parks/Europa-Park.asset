@@ -15,24 +15,190 @@ MonoBehaviour:
   title: Europa-Park
   iconSprite: {fileID: 21300000, guid: ba29ccb15e5c5f944a5d4d4c114b0085, type: 3}
   backgroundSprite: {fileID: 21300000, guid: 3883ab5015801254cae4e959deee034b, type: 3}
-  Titles:
-  - sectionType: 0
-    entries:
-    - 
-    - 
-    - 
-  - sectionType: 1
-    entries:
-    - 
-    - 
-    - 
-  coasterTitles:
-  - Silverstar
-  - Wodan
-  flatridesTitles: []
-  walkthroughTitles: []
-  characterTitles: []
-  eventTitles: []
-  areaTitles: []
-  changedNamesTitles: []
-  defunctTitles: []
+  wordCategories:
+  - type: 0
+    words:
+    - Europa-Park
+  - type: 1
+    words:
+    - Alpenexpress "Enzian"
+    - Alpenexpress Coastiality
+    - Arthur
+    - Ba-a-a Express
+    - blue fire Megacoaster
+    - Euro-Mir
+    - Eurosat - CanCan Coaster
+    - Matterhorn-Blitz
+    - Pegasus - Die YoungStar Achterbahn
+    - Silver Star
+    - Wasserachterbahn Poseidon
+    - WODAN - Timburcoaster
+  - type: 2
+    words:
+    - EP-Express
+    - Geisterschloss
+    - Jim Knopf - Reise durch Lummerland
+    - "Madame Freudenreich Curiosit\xE9s"
+    - Monorail-Bahn
+    - Old Mac Donald's Tractor Fun
+    - Oldtimer-Fahrt
+    - Panoramabahn
+    - Piccolo Mondo
+    - "Schlittenfahrt Schneefl\xF6ckchen"
+    - Schweizer Bobbahn
+    - Silverstone-Piste
+    - Snorri Touren
+    - Volo da Vinci
+  - type: 5
+    words:
+    - Arena of Football
+    - Casa da Aventura
+    - "Dornr\xF6schenschloss"
+    - Laser Adventure - Schule der Abenteurer
+    - Limerick Castle
+    - "L\xEDtill Island - Hansgrohe Kinderwasserwelt"
+    - Little Lamb's Land
+    - Paul's Playboat
+    - "Spielplatz W\xFCrmchen Wies'n"
+    - Wasserspielplatz
+  - type: 4
+    words:
+    - Crazy Taxi
+    - Dancing Dingie
+    - Euro-Tower
+    - Feria Swing
+    - "Fliegender Holl\xE4nder"
+    - Fluch der Kassandra
+    - Jungfrau-Gletscherflieger
+    - Koffiekopjes
+    - Kolumbusjolle
+    - London Bus
+    - "M\xFCl-M\xFCls Karussell"
+    - Poppy Towers
+    - Spinning Dragons
+    - The British Carousel
+    - Tower Tow
+    - Vindjammer
+    - Voletarium
+    - Wiener Wellenflieger
+  - type: 3
+    words:
+    - Atlantica SuperSplash
+    - Donau Dampfer
+    - Elfenfahrt
+    - Fjord Rafting
+    - Josefinas kaiserliche Zauberreise
+    - Marionetten-Bootsfahrt
+    - Piraten in Batavia
+    - Sheep Rock
+    - Tiroler Wildwasserbahn
+    - Wasserachterbahn Poseidon
+    - Whale Adventures - Northern Lights
+  - type: 8
+    words:
+    - "Die R\xFCckkehr des Sultans"
+    - ACE - The Adventure Begins
+    - Happy Family Next Level 4D
+    - The show must go on
+    - Abraka... Shakespeare! RELOADED
+    - Baila, Carmen, baila!
+    - Becoming No.1
+    - Ed's Adventure Parade
+    - JUNIOR CLUB Studios - Live!
+    - Karneval in Venedig
+    - Limerick Bubbles
+    - Ritmo Flamenco
+    - Wiener Wasser Walzer
+  - type: 13
+    words:
+    - Aschenputtel
+    - blue fire Dome
+    - Das tapfere Schneiderlein
+    - Die goldene Gans
+    - Doktor Allwissend
+    - Frau Holle
+    - "Froschk\xF6nig"
+    - "H\xE4nsel und Gretel"
+    - "K\xE4the Kruses Puppenausstellung"
+    - Mercedes-Benz Hall
+    - Narrenscheune
+    - Rapunzel
+    - Reise nach Rulantica - Preview Center
+    - Schatzkammer
+    - Tischlein deck dich
+  - type: 12
+    words:
+    - Adventure Food Station
+    - Arena of Football - Coca-Cola Sportsbar
+    - Atlantis-Snack
+    - Bamboe Baai
+    - Bayrisch-Badischer Biergarten
+    - Bistro Tomi Ungerer
+    - Bobbahn Snack
+    - "Burger B\xE4r"
+    - "Caf\xE9 Benedetto"
+    - "Casa Atl\xE2ntica"
+    - Chez Marianne
+    - CMAK - Russian Food & Burger
+    - "Cr\xEAperie Nadine"
+    - Crocodile Bar
+    - "Els\xE4sser Holzofenb\xE4ckerei"
+    - "ERDINGER Wei\xDFbiergarten"
+    - "Europa-Park Rock Caf\xE9"
+    - Fiskehuset
+    - Fjord Restaurant
+    - Flammkuchenstand
+    - Flammlachsstand
+    - Foodloop
+    - Friethuys
+    - Gelateria
+    - granini Saft Butikk
+    - Is Huset
+    - Jack's DELI
+    - "Kaffi H\xFAs"
+    - Langnese Happiness Station Silver Star
+    - Langnese Happiness Station Voletarium
+    - Magellan Lounge
+    - Magnum Pleasure Store
+    - Mario's Pizza
+    - Melusina Snacks & Drinks
+    - Mille Fleurs
+    - Moby Dick Hot Dogs
+    - "Molencaf\xE9"
+    - Motorsportsbar
+    - Pastaria di Enzo
+    - Petite France
+    - Pizzeria Venezia
+    - Restaurant Schloss Balthasar
+    - "Schwarzw\xE4lder Vogtshaus"
+    - Seehaus
+    - "SPICES - K\xFCchen der Welt"
+    - Taverna Mykonos
+    - The Baltic - Coffee & Lounge
+    - "The O'Mackay's Caf\xE9 and Pub"
+    - The Three Piglets
+    - "Waffelb\xE4ckerei"
+    - Walliser Stube
+    - Walliser Weinkeller
+    - Walter's Wurstbude
+    - "W\xFCrstl Toni"
+  - type: 9
+    words:
+    - Abenteuerland
+    - Deutscher Themenbereich
+    - Englischer Themenbereich
+    - "Franz\xF6sischer Themenbereich"
+    - Griechischer Themenbereich
+    - "Grimms M\xE4rchenwald"
+    - "Holl\xE4ndischer Themenbereich"
+    - Irischer Themenbereich
+    - "Isl\xE4ndischer Themenbereich"
+    - Italienischer Themenbereich
+    - "K\xF6nigreich der Minimoys"
+    - Luxemburger Themenbereich
+    - "\xD6sterrecihischer Themenbereich"
+    - Portugiesischer Themenbereich
+    - Russischer Themenbereich
+    - Schweizer Themenbereich
+    - Skandinavischer Themenbereich
+    - Spanischer Themenbereich
