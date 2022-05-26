@@ -49,18 +49,19 @@ MonoBehaviour:
     - Silverstone-Piste
     - Snorri Touren
     - Volo da Vinci
-  - type: 5
+  - type: 3
     words:
-    - Arena of Football
-    - Casa da Aventura
-    - "Dornr\xF6schenschloss"
-    - Laser Adventure - Schule der Abenteurer
-    - Limerick Castle
-    - "L\xEDtill Island - Hansgrohe Kinderwasserwelt"
-    - Little Lamb's Land
-    - Paul's Playboat
-    - "Spielplatz W\xFCrmchen Wies'n"
-    - Wasserspielplatz
+    - Atlantica SuperSplash
+    - Donau Dampfer
+    - Elfenfahrt
+    - Fjord Rafting
+    - Josefinas kaiserliche Zauberreise
+    - Marionetten-Bootsfahrt
+    - Piraten in Batavia
+    - Sheep Rock
+    - Tiroler Wildwasserbahn
+    - Wasserachterbahn Poseidon
+    - Whale Adventures - Northern Lights
   - type: 4
     words:
     - Crazy Taxi
@@ -81,19 +82,38 @@ MonoBehaviour:
     - Vindjammer
     - Voletarium
     - Wiener Wellenflieger
-  - type: 3
+  - type: 5
     words:
-    - Atlantica SuperSplash
-    - Donau Dampfer
-    - Elfenfahrt
-    - Fjord Rafting
-    - Josefinas kaiserliche Zauberreise
-    - Marionetten-Bootsfahrt
-    - Piraten in Batavia
-    - Sheep Rock
-    - Tiroler Wildwasserbahn
-    - Wasserachterbahn Poseidon
-    - Whale Adventures - Northern Lights
+    - Arena of Football
+    - Casa da Aventura
+    - "Dornr\xF6schenschloss"
+    - Laser Adventure - Schule der Abenteurer
+    - Limerick Castle
+    - "L\xEDtill Island - Hansgrohe Kinderwasserwelt"
+    - Little Lamb's Land
+    - Paul's Playboat
+    - "Spielplatz W\xFCrmchen Wies'n"
+    - Wasserspielplatz
+  - type: 9
+    words:
+    - Abenteuerland
+    - Deutscher Themenbereich
+    - Englischer Themenbereich
+    - "Franz\xF6sischer Themenbereich"
+    - Griechischer Themenbereich
+    - "Grimms M\xE4rchenwald"
+    - "Holl\xE4ndischer Themenbereich"
+    - Irischer Themenbereich
+    - "Isl\xE4ndischer Themenbereich"
+    - Italienischer Themenbereich
+    - "K\xF6nigreich der Minimoys"
+    - Luxemburger Themenbereich
+    - "\xD6sterrecihischer Themenbereich"
+    - Portugiesischer Themenbereich
+    - Russischer Themenbereich
+    - Schweizer Themenbereich
+    - Skandinavischer Themenbereich
+    - Spanischer Themenbereich
   - type: 8
     words:
     - "Die R\xFCckkehr des Sultans"
@@ -109,23 +129,13 @@ MonoBehaviour:
     - Limerick Bubbles
     - Ritmo Flamenco
     - Wiener Wasser Walzer
-  - type: 13
+  - type: 7
     words:
-    - Aschenputtel
-    - blue fire Dome
-    - Das tapfere Schneiderlein
-    - Die goldene Gans
-    - Doktor Allwissend
-    - Frau Holle
-    - "Froschk\xF6nig"
-    - "H\xE4nsel und Gretel"
-    - "K\xE4the Kruses Puppenausstellung"
-    - Mercedes-Benz Hall
-    - Narrenscheune
-    - Rapunzel
-    - Reise nach Rulantica - Preview Center
-    - Schatzkammer
-    - Tischlein deck dich
+    - "M\xE4rchenfest"
+    - Immer wieder sonntags
+    - Midsommer Havn-Fest
+    - Chefs Table
+    - DJ Bobo
   - type: 12
     words:
     - Adventure Food Station
@@ -182,23 +192,23 @@ MonoBehaviour:
     - Walliser Weinkeller
     - Walter's Wurstbude
     - "W\xFCrstl Toni"
-  - type: 9
+  - type: 11
     words:
-    - Abenteuerland
-    - Deutscher Themenbereich
-    - Englischer Themenbereich
-    - "Franz\xF6sischer Themenbereich"
-    - Griechischer Themenbereich
-    - "Grimms M\xE4rchenwald"
-    - "Holl\xE4ndischer Themenbereich"
-    - Irischer Themenbereich
-    - "Isl\xE4ndischer Themenbereich"
-    - Italienischer Themenbereich
-    - "K\xF6nigreich der Minimoys"
-    - Luxemburger Themenbereich
-    - "\xD6sterrecihischer Themenbereich"
-    - Portugiesischer Themenbereich
-    - Russischer Themenbereich
-    - Schweizer Themenbereich
-    - Skandinavischer Themenbereich
-    - Spanischer Themenbereich
+    - Rulantica - Das Musical
+  - type: 13
+    words:
+    - Aschenputtel
+    - blue fire Dome
+    - Das tapfere Schneiderlein
+    - Die goldene Gans
+    - Doktor Allwissend
+    - Frau Holle
+    - "Froschk\xF6nig"
+    - "H\xE4nsel und Gretel"
+    - "K\xE4the Kruses Puppenausstellung"
+    - Mercedes-Benz Hall
+    - Narrenscheune
+    - Rapunzel
+    - Reise nach Rulantica - Preview Center
+    - Schatzkammer
+    - Tischlein deck dich

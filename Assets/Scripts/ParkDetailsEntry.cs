@@ -7,7 +7,11 @@ namespace ThemeparkQuiz
     public class ParkDetailsEntry : MonoBehaviour
     {
         [SerializeField] private TMP_Text detailsTitleText;
+        [SerializeField] private TMP_Text wordCountText;
         [SerializeField] private Toggle detailActive;
+
+        public Toggle DetailActive => detailActive;
+
         private WordList parkList;
         private WordTypes type;
         private ParkOverviewManager overviewManager;
@@ -17,7 +21,8 @@ namespace ThemeparkQuiz
             this.parkList = parkList;
             this.type = type;
             this.overviewManager = overviewManager;
-            detailsTitleText.text = type.GetNamePlural() + " (" + parkList.GetTitles(type).Length + " Begriffe)";
+            detailsTitleText.text = type.GetNamePlural();
+            wordCountText.text = " (" + parkList.GetTitles(type).Length + " Begriffe)";
             detailActive.isOn = settings.EnabledWords[type];
         }
 

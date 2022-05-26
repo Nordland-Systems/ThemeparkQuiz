@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ThemeparkQuiz;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ParkOverviewManager : MonoBehaviour
 {
@@ -16,7 +18,10 @@ public class ParkOverviewManager : MonoBehaviour
     [SerializeField] private TMP_Text parkDetailsTitle;
     [SerializeField] private GameObject parkDetailsPrefab;
     [SerializeField] private Transform parkDetailsHolder;
+    
     private Dictionary<WordList, ParkSettings> parkSettings;
+    private WordList openDetails;
+    private List<Toggle> openDetailToggles;
 
     public Dictionary<WordList, ParkSettings> ParkSettings
     {
@@ -28,6 +33,7 @@ public class ParkOverviewManager : MonoBehaviour
     void Start()
     {
         parkSettings = new Dictionary<WordList, ParkSettings>();
+        openDetailToggles = new List<Toggle>();
         PopulateList();
     }
 
@@ -35,7 +41,14 @@ public class ParkOverviewManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(GameScenes.MAINMENU);
+            if (parkDetails.activeInHierarchy)
+            {
+                parkDetails.SetActive(false);
+            }
+            else
+            {
+                SceneManager.LoadScene(GameScenes.MAINMENU);
+            }
         }
     }
 
@@ -51,6 +64,7 @@ public class ParkOverviewManager : MonoBehaviour
 
     public void OpenDetails(WordList listEntry)
     {
+        openDetails = listEntry;
         foreach (Transform child in parkDetailsHolder)
         {
             Destroy(child.gameObject);
@@ -61,32 +75,78 @@ public class ParkOverviewManager : MonoBehaviour
             ParkDetailsEntry details =
                 Instantiate(parkDetailsPrefab, parkDetailsHolder).GetComponent<ParkDetailsEntry>();
             details.PopulateDetail(listEntry, cat.Type, parkSettings[listEntry], this);
+            openDetailToggles.Add(details.DetailActive);
         }
-
+        
         parkDetailsTitle.text = listEntry.Title;
-
         parkDetails.SetActive(true);
     }
 
     public void SelectAll()
     {
-        foreach (KeyValuePair<WordList, ParkSettings> setting in parkSettings)
+        if (!parkDetails.activeInHierarchy)
         {
-            foreach (KeyValuePair<WordTypes, bool> enabledWords in setting.Value.EnabledWords)
+            WordList[] settingKeys = parkSettings.Keys.ToArray();
+            foreach (WordList setting in settingKeys)
             {
-                setting.Value.EnabledWords[enabledWords.Key] = true;
+                WordTypes[] enabledWords = parkSettings[setting].EnabledWords.Keys.ToArray();
+                foreach (WordTypes entry in enabledWords)
+                {
+                    parkSettings[setting].EnabledWords[entry] = true;
+                }
             }
+        }
+        else
+        {
+            SelectAll(openDetails);
+            
+            foreach (Toggle tgl in openDetailToggles)
+            {
+                tgl.isOn = true;
+            }
+        }
+    }
+
+    public void SelectAll(WordList park)
+    {
+        WordTypes[] enabledWords = parkSettings[park].EnabledWords.Keys.ToArray();
+        foreach (WordTypes entry in enabledWords)
+        {
+            parkSettings[park].EnabledWords[entry] = true;
         }
     }
     
     public void DeSelectAll()
     {
-        foreach (KeyValuePair<WordList, ParkSettings> setting in parkSettings)
+        if (!parkDetails.activeInHierarchy)
         {
-            foreach (KeyValuePair<WordTypes, bool> enabledWords in setting.Value.EnabledWords)
+            WordList[] settingKeys = parkSettings.Keys.ToArray();
+            foreach (WordList setting in settingKeys)
             {
-                setting.Value.EnabledWords[enabledWords.Key] = false;
+                WordTypes[] enabledWords = parkSettings[setting].EnabledWords.Keys.ToArray();
+                foreach (WordTypes entry in enabledWords)
+                {
+                    parkSettings[setting].EnabledWords[entry] = false;
+                }
             }
+        }
+        else
+        {
+            DeSelectAll(openDetails);
+            
+            foreach (Toggle tgl in openDetailToggles)
+            {
+                tgl.isOn = false;
+            }
+        }
+    }
+
+    public void DeSelectAll(WordList park)
+    {
+        WordTypes[] enabledWords = parkSettings[park].EnabledWords.Keys.ToArray();
+        foreach (WordTypes entry in enabledWords)
+        {
+            parkSettings[park].EnabledWords[entry] = false;
         }
     }
 

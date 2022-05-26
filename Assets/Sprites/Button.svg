@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 135.46667 135.46666"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="Button.svg"
+   inkscape:export-filename="D:\Git-Workspace\SPGames\ThemeparkQuiz\Assets\Sprites\Button.png"
+   inkscape:export-xdpi="96.000008"
+   inkscape:export-ydpi="96.000008"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:snap-page="true"
+     inkscape:zoom="1.0708779"
+     inkscape:cx="130.26695"
+     inkscape:cy="291.81665"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect846"
+       style="fill:#ffffff;stroke-width:10.3058;stroke-linejoin:round;fill-opacity:1"
+       d="M 10.204915,0 H 125.49864 c 5.57092,0 10.0558,4.7107212 10.0558,10.562155 V 124.87643 c 0,5.85143 -4.48488,10.56215 -10.0558,10.56215 H 10.204915 c -5.5709144,0 -10.05580231,-4.71072 -10.05580231,-10.56215 V 10.562155 C 0.14911269,4.7107212 4.6340006,0 10.204915,0 Z" />
+    <path
+       style="fill:#f2f2f2;stroke:#d9d9d9;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 8.6832604,130.175 H 126.78341"
+       id="path1317" />
+    <path
+       style="fill:#f2f2f2;stroke:#d9d9d9;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 8.6832604,5.2916667 H 126.78341"
+       id="path2290" />
+  </g>
+</svg>

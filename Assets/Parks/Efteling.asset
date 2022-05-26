@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce63168ed106e64fb3be66e93d2a40a, type: 3}
+  m_Name: Efteling
+  m_EditorClassIdentifier: 
+  title: Efteling
+  iconSprite: {fileID: 21300000, guid: 80341ebb5dbbc664e8e30ffc49f5856d, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: 3a76d115adeedd54385374b1a52eb466, type: 3}
+  wordCategories:
+  - type: 0
+    words:
+    - Efteling
+  - type: 1
+    words:
+    - Max & Moritz
+    - Joris end de Draak
+    - Baron 1898
+    - De Vliegende Hollander
+    - Python
+    - Vogel Rok
+  - type: 2
+    words:
+    - Symbolica
+    - Droomvlucht
+    - Carnaval Festival
+    - Fata Morgana
+    - De Oude Tufferbaan
+    - Monorail
+    - Kinderspoor
+    - Stoomtrein
+  - type: 3
+    words:
+    - "Pira\xF1a"
+    - De Vliegende Hollander
+    - Gondoletta
+  - type: 4
+    words:
+    - Sirocco
+    - Stoomcarrousel
+    - Villa Volta
+    - Halve Maen
+    - Pagode
+    - Kindervreugd
+  - type: 5
+    words:
+    - Abenteuer Insel Archipel
+    - Spielwald Nest!
+    - "M\xE4rchenwald"
+    - Kleuterhof
+    - Volk van Laaf
+    - Efteling Museum
+    - Diorama
+  - type: 6
+    words:
+    - Jokie
+    - Jet
+    - "Der kleine D\xE4umling"
+    - Zwerg Ku
+    - Langhals
+    - "Gei\xDFlein Benjamin"
+    - Riese
+    - "Rotk\xE4ppchen"
+    - Fakir
+    - Esel
+    - Drache
+    - Zwerg Ka
+    - Wolf
+    - Zwerg Keu
+    - Zwerg Ke
+    - Zwerg Kei
+    - Aschenputtel
+    - Hexe
+    - Zwerg Ko
+    - Zwerg Kie
+    - "M\xE4rchenbaum"
+    - "Gro\xDFmeister Almar"
+    - Pantagor
+    - Pardoes
+    - Pardijn
+    - Aliciana
+    - Pardulfus
+    - Polle
+    - Rattar
+    - O.J. Punctuel
+    - Graf Olaf Grafhart
+    - Joost
+    - "Gr\xE4fin Halina"
+    - Maurits
+    - Lisa
+    - Samira
+    - "Samu\xEBl"
+    - Thomas
+    - Emma
+  - type: 9
+    words:
+    - Anton Pieck Plein
+  - type: 8
+    words:
+    - Fabula
+    - Spookslot
+    - "Ravele\xFFn"
+    - Aquanura
+    - "Der M\xE4rchensammler"
+    - Spookjesboomshow
+    - Pardoes der Zauberer Meet & Greet
+    - Jokie en Jet
+    - Efteling-Bewohner Meet & Greet
+  - type: 12
+    words:
+    - "Het Wapen von Ravele\xFFn"
+    - "B\xE4ckerei Kr\xFCmel"
+    - '''tVerwende Nest!'
+    - "Frau Boltes K\xFCche"
+    - Fabula Restaurant
+    - Polles Keuken
+    - Panorama
+    - Pinokkio's Pizza & Pasta Restaurant
+    - In de Gelaars de Kat
+    - "De Vrol\xFFke Noot"
+    - Het Witte Paard
+    - Kleyne Klaroen
+    - '''t Melkhuysje'
+    - Panorama Selbstbedienung
+    - t' Poffertje
+    - Restaurant Station de Oost
+    - Toko Pagode
+  - type: 13
+    words:
+    - Game Gallery
+    - "Holle Bolle G\xFFs"

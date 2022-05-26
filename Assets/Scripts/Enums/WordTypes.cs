@@ -29,7 +29,7 @@
                 case WordTypes.Coaster:
                     return "Achterbahn";
                 case WordTypes.Trackride:
-                    return "Schienenfahrgeschäft";
+                    return "Schienenfahrt";
                 case WordTypes.Waterride:
                     return "Wasserbahn";
                 case WordTypes.Flatride:
@@ -66,7 +66,7 @@
                 case WordTypes.Coaster:
                     return "Achterbahnen";
                 case WordTypes.Trackride:
-                    return "Schienenfahrgeschäfte";
+                    return "Schienenfahrten";
                 case WordTypes.Waterride:
                     return "Wasserbahnen";
                 case WordTypes.Flatride:

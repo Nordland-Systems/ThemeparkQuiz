@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce63168ed106e64fb3be66e93d2a40a, type: 3}
+  m_Name: Halloweenhaus Schmalenbeck
+  m_EditorClassIdentifier: 
+  title: Halloweenhaus Schmalenbeck
+  iconSprite: {fileID: 21300000, guid: b5e5539e5979f3043a891993ccd53628, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: d532e623e76f00847a4ebb1d7c7add23, type: 3}
+  wordCategories:
+  - type: 0
+    words:
+    - Halloweenhaus Schmalenbeck
+  - type: 5
+    words:
+    - Halloweenhaus Schmalenbeck
+  - type: 6
+    words:
+    - Otto Woodman
+    - Der Sensenmann
+    - Dr. Evil
+    - Bennet
+    - Big Otto
+    - Die Vogelscheuche
+    - Gisela die Spinne
+    - Die kleine Vogelscheuche
+    - Der Scream
+    - Java
+  - type: 9
+    words:
+    - Preshow
+    - Hekate Labor
+    - Friedhof des Todes
+    - Beimoorwald
+  - type: 12
+    words:
+    - "S\xFC\xDFigkeitenausgabe"
+  - type: 10
+    words:
+    - HW40a
+  - type: 11
+    words:
+    - "Spendensch\xE4del Gen 1"
+    - Krampus Maske 2019
+    - Showcontroller (2018-2019)

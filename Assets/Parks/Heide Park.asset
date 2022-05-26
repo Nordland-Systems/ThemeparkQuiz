@@ -64,26 +64,6 @@ MonoBehaviour:
     - Screamie
     - Western-Riesenrad
     - "W\xFCstenflitzer"
-  - type: 10
-    words:
-    - Colossos
-  - type: 8
-    words:
-    - Peppa Meet & Greet
-    - Piratenshow "Im Auge des Drachen"
-    - The Movie Maker
-    - Kids Abenteuer-Show
-    - Ohnezahn Meet & Greet
-    - Ghostbusters Meet & Greet
-  - type: 12
-    words:
-    - Peppas Haus
-  - type: 7
-    words:
-    - Carnival
-    - Pride-Festival
-    - Oktoberfest
-    - Halloween
   - type: 9
     words:
     - Peppa Pig Land
@@ -93,6 +73,20 @@ MonoBehaviour:
     - Exploria
     - "Drachenz\xE4hmen - Die Insel"
     - Eingangsbereich
+  - type: 8
+    words:
+    - Peppa Meet & Greet
+    - Piratenshow "Im Auge des Drachen"
+    - The Movie Maker
+    - Kids Abenteuer-Show
+    - Ohnezahn Meet & Greet
+    - Ghostbusters Meet & Greet
+  - type: 7
+    words:
+    - Carnival
+    - Pride-Festival
+    - Oktoberfest
+    - Halloween
   - type: 12
     words:
     - Piraten Burger
@@ -110,3 +104,58 @@ MonoBehaviour:
     - Lucky Snack
     - Abenteuer Coffee Lounge
     - Knusperhaus
+  - type: 10
+    words:
+    - Colossos
+  - type: 11
+    words:
+    - Alligatoren-Show
+    - Aqua Spin
+    - Asylum
+    - Bauernhaus / Souvenir Shopping Center
+    - "Bulls & Bandits - Der total verr\xFCckte Steak Saloon"
+    - Comicfigurentheater
+    - Condor
+    - Delfinarium
+    - Drachenfahrt
+    - El Sol
+    - Fernlenkboote
+    - Freiheitsstatue
+    - Grand Hotel Morton
+    - Hallo Spencer Studio
+    - "Hamburger Stra\xDFenbahn"
+    - Heide-Dorf
+    - Hully Gully
+    - Huracan
+    - Kaffeetassen-Karussell
+    - Kindereisenbahn
+    - Kinderlok Old 99
+    - Panorama Turm 1
+    - Panorama Turm 2
+    - Wildwasserbahn 2
+    - Koggenfahrt
+    - Krake lebt!
+    - Krake lebt Kids!
+    - Lady Moon
+    - Madagascar Live! - It's Circus Time
+    - "M\xE4rchenfahrt"
+    - Minigolf-Platz
+    - Mississippi Dampfer
+    - Monza-Piste
+    - Okti
+    - Papageienshow
+    - Pfahlhocken
+    - Ponyreiten
+    - Rainbow
+    - "Seel\xF6wenshow"
+    - Schimpansen-Show
+    - Sektor 23
+    - Turm der Dunkelheit
+    - Vogeltheater
+    - Wasserspielplatz
+    - Wichtelhausenbahn
+    - Wiener Pferdekarussell "Alt Wien"
+    - Wildpark
+  - type: 13
+    words:
+    - Peppas Haus

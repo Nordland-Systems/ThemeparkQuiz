@@ -76,5 +76,17 @@ namespace ThemeparkQuiz
         {
             parkOverviewManager.OpenDetails(wordList);
         }
+
+        public void ChangeActivation()
+        {
+            if (activatedWords > 0)
+            {
+                parkOverviewManager.DeSelectAll(wordList);
+            }
+            else
+            {
+                parkOverviewManager.SelectAll(wordList);
+            }
+        }
     }
 }
