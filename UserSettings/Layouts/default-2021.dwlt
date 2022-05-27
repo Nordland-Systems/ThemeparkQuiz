@@ -101,11 +101,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-<<<<<<< Updated upstream
-  controlID: 15
-=======
   controlID: 82
->>>>>>> Stashed changes
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,11 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-<<<<<<< Updated upstream
-  controlID: 16
-=======
   controlID: 83
->>>>>>> Stashed changes
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -307,18 +299,6 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-<<<<<<< Updated upstream
-  - Assets/Parks
-  m_LastFoldersGridSize: 16
-  m_LastProjectPath: D:\Git-Workspace\SPGames\ThemeparkQuiz
-  m_LockTracker:
-    m_IsLocked: 0
-  m_FolderTreeState:
-    scrollPos: {x: 0, y: 63}
-    m_SelectedIDs: 5e630000
-    m_LastClickedID: 25438
-    m_ExpandedIDs: 0000000040630000426300004463000046630000486300004a6300004c6300004e63000000ca9a3b
-=======
   - Assets/Scripts/Managers
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Git-Workspace\_SPGames\ThemeparkQuiz
@@ -329,7 +309,6 @@ MonoBehaviour:
     m_SelectedIDs: d4620000
     m_LastClickedID: 25300
     m_ExpandedIDs: 00000000b2620000ca62000000ca9a3b
->>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -357,11 +336,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-<<<<<<< Updated upstream
-    m_ExpandedIDs: 0000000040630000426300004463000046630000486300004a6300004c6300004e630000
-=======
     m_ExpandedIDs: 00000000b2620000
->>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -491,11 +466,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-<<<<<<< Updated upstream
-      m_ExpandedIDs: 80f4ffffb8f4ffff80f6ffffc4f6ffffd8f6ffff26fbffff
-=======
       m_ExpandedIDs: 24e7ffff70e7fffface7ffffb6e7ffffc2e7ffffc6e8ffff16e9ffffeaeafffffaeaffff0aebffff72faffff
->>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -766,15 +737,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-<<<<<<< Updated upstream
-    m_Target: {x: 0.25769424, y: -0.1553731, z: 90.00229}
-    speed: 2
-    m_Value: {x: 0.25769424, y: -0.1553731, z: 90.00229}
-=======
     m_Target: {x: 910.1968, y: 1586.0746, z: 53707670}
     speed: 2
     m_Value: {x: 910.1968, y: 1586.0746, z: 53707670}
->>>>>>> Stashed changes
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -825,15 +790,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-<<<<<<< Updated upstream
-    m_Target: 5.356436
-    speed: 2
-    m_Value: 5.356436
-=======
     m_Target: 1665.716
     speed: 2
     m_Value: 1665.716
->>>>>>> Stashed changes
   m_Ortho:
     m_Target: 1
     speed: 2

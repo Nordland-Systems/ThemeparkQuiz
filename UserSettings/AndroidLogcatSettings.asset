@@ -11,55 +11,29 @@
         {
             "deviceId": "WCR7N19111009715",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-<<<<<<< Updated upstream
-            "processId": 14618,
-            "exited": true
-        },
-        {
-            "deviceId": "WCR7N19111009715",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 15972,
-=======
             "processId": 28380,
->>>>>>> Stashed changes
             "exited": true
         },
         {
             "deviceId": "WCR7N19111009715",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-<<<<<<< Updated upstream
-            "processId": 16508,
-=======
             "processId": 7214,
->>>>>>> Stashed changes
             "exited": true
         },
         {
             "deviceId": "WCR7N19111009715",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-<<<<<<< Updated upstream
-            "processId": 16911,
-=======
             "processId": 8940,
->>>>>>> Stashed changes
             "exited": true
         },
         {
             "deviceId": "WCR7N19111009715",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-<<<<<<< Updated upstream
-            "processId": 17338,
-=======
             "processId": 9977,
->>>>>>> Stashed changes
             "exited": true
         },
         {
             "deviceId": "WCR7N19111009715",
-<<<<<<< Updated upstream
-            "name": "com.actionlauncher.playstore",
-            "processId": 8533,
-=======
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 10437,
             "exited": true
@@ -74,7 +48,6 @@
             "deviceId": "WCR7N19111009715",
             "name": "com.android.contacts",
             "processId": 24643,
->>>>>>> Stashed changes
             "exited": false
         }
     ],
