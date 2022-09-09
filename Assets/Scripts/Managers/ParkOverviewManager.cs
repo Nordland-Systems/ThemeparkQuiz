@@ -32,6 +32,7 @@ public class ParkOverviewManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         parkSettings = new Dictionary<WordList, ParkSettings>();
         openDetailToggles = new List<Toggle>();
         PopulateList();
@@ -154,6 +155,7 @@ public class ParkOverviewManager : MonoBehaviour
     {
         GameManager.Parks = parks;
         GameManager.ParkSettings = parkSettings;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(GameScenes.GAMESCENE);
     }
 }

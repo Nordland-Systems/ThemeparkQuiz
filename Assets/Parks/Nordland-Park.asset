@@ -21,26 +21,36 @@ MonoBehaviour:
     - Nordland-Park
   - type: 1
     words:
-    - Turm des Shay
+    - Tower of Shay
     - Machina
-    - Powa
-    - Mount Rushington Minenbahn
+    - Powah!
+    - Mount Rushington Minetrain
     - Lokis Escape
+    - Call of the Vikings
   - type: 3
     words:
     - Mount Rushington Wildwasserbahn
     - Mount Rushington Rafting
-    - Burgfluss
+    - Castle River
+    - Ghost Mountain
+    - Skull Cave
   - type: 4
     words:
     - Labor des Zauberers
-    - Schiffschaukel
-    - Kinderkarussell
+    - Swing Boat
+    - Explorer Carousel
+    - Banana Swing
+    - Black Mines
+    - Da Vincis Flight
+    - Groggy Lore
+    - Mountain Freefall
+    - Rocket Swirl
   - type: 8
     words:
-    - "Geschichten eines Seeb\xE4ren"
+    - Tales of a Sea Dog
     - Licht & Effektshow
     - "Mount Rushington Party H\xF6hle"
+    - Totentempel
   - type: 9
     words:
     - Main Street
@@ -53,3 +63,44 @@ MonoBehaviour:
     words:
     - "Halle des Bergk\xF6nigs"
     - Nordland-Band
+  - type: 5
+    words:
+    - Baldurs Magic Journey
+    - Draugrs Revenge
+    - Jungle-Temple
+    - The Tavern
+  - type: 2
+    words:
+    - Dragons Escape
+    - Dungeon Legends
+    - Funfactory
+    - Magical World of Coralie
+    - Mainstreet Express
+    - The Ayahuasca Experience
+  - type: 13
+    words:
+    - Hall of the mountain king
+  - type: 12
+    words:
+    - Asgard
+    - Baumstriezel Imbiss
+    - "Cafe zum blauen L\xF6wen"
+    - Coralies Imbiss
+    - "Der Kr\xFCmel"
+    - Drachenimbiss
+    - Eisparadies
+    - Fischbude
+    - Fog Fried Fries
+    - Hafenrestaurant
+    - Harzeis
+    - Lokis Imbiss
+    - Marktplatz
+    - Mount Rushington Imbiss
+    - Nordland-Restaurant
+    - Odins Heimkehr
+    - Puwaru Power
+    - Steam Crepes
+    - Totentempel
+    - Uppsala Imbiss
+    - Waffeln to go
+    - Wafflefactory

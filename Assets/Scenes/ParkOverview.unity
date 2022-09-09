@@ -370,6 +370,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c95c6115c3d727469003f2747f7ca91, type: 2}
   - {fileID: 11400000, guid: 81026268647813343a07653994815caa, type: 2}
   - {fileID: 11400000, guid: db23b361ff1e7c949982099e174745aa, type: 2}
+  - {fileID: 11400000, guid: a4f7fa5bf7e92ec4194110372a15f4c9, type: 2}
   parkListHolder: {fileID: 1677016935}
   parkEntryPrefab: {fileID: 5676073660028617121, guid: 1d856a946dc7f4344b4281ff3b017f7a, type: 3}
   parkDetails: {fileID: 1578900743}

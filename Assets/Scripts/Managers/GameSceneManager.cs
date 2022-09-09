@@ -18,6 +18,10 @@ namespace ThemeparkQuiz
         [SerializeField] private TMP_Text wordDescription;
         [SerializeField] private TMP_Text countdownText;
         [SerializeField] private List<WordEntry> words;
+
+        [Header("Rotation")] 
+        [SerializeField] private float rotationUp;
+        [SerializeField] private float rotationDown;
         
         [Header("End Screen")]
         [SerializeField] private GameObject endScreen;
@@ -37,6 +41,7 @@ namespace ThemeparkQuiz
 
         private void Start()
         {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
             timeForRound = PlayerPrefs.GetInt("maxMinutes", 0) * 60 + PlayerPrefs.GetInt("maxSeconds");
             random = new Random();
             currentGameState = GameStates.STARTUP;
@@ -120,9 +125,11 @@ namespace ThemeparkQuiz
                 currentGameState = GameStates.PASTGAME;
                 EndGame();
             }
+            
+            currentGameState = GameStates.INGAME;
         }
 
-        private void DetectMovement()
+        /*private void DetectMovementOld()
         {
             if (currentGameState == GameStates.STARTUP)
             {
@@ -152,14 +159,14 @@ namespace ThemeparkQuiz
             else if(currentGameState == GameStates.INGAME)
             {
                 Screen.sleepTimeout = SleepTimeout.NeverSleep;
-                if (Input.deviceOrientation == DeviceOrientation.FaceDown)
+                if (GyroManager.Instance.Rotation < rotationDown)
                 {
                     currentGameState = GameStates.WAIT;
                     background.DOColor(Color.green, 0.3f);
                     wordText.text = "KORREKT";
                     guessedWords.Add(new WordGuessed(currentWord, true, timeLeft));
                 }
-                else if (Input.deviceOrientation == DeviceOrientation.FaceUp)
+                else if (GyroManager.Instance.Rotation > rotationUp)
                 {
                     currentGameState = GameStates.WAIT;
                     background.DOColor(Color.yellow, 0.3f);
@@ -172,10 +179,7 @@ namespace ThemeparkQuiz
             }
             else if (currentGameState == GameStates.WAIT)
             {
-                if (Input.deviceOrientation == DeviceOrientation.FaceDown)
-                {
-                }
-                else if (Input.deviceOrientation == DeviceOrientation.FaceUp)
+                if (GyroManager.Instance.Rotation < rotationDown || GyroManager.Instance.Rotation > rotationUp)
                 {
                 }
                 else
@@ -188,6 +192,88 @@ namespace ThemeparkQuiz
             {
                 Screen.sleepTimeout = SleepTimeout.SystemSetting;
             }
+        }*/
+        
+        private void DetectMovement()
+        {
+            if (currentGameState == GameStates.STARTUP)
+            {
+                DOTween.To(() => countdownNumbers, x => countdownNumbers = x, 0, 4).OnComplete(StartGame);
+                wordText.text = countdownNumbers.ToString();
+                currentGameState = GameStates.PREGAME;
+                wordDescription.text = "";
+            }
+            else if (currentGameState == GameStates.PREGAME)
+            {
+                wordText.text = countdownNumbers.ToString();
+            }
+            else if(currentGameState == GameStates.INGAME)
+            {
+                Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            }
+            else if (currentGameState == GameStates.WAIT)
+            {
+                //background.DOColor(new Color(0.2f,0.2f,0.2f), 0.5f).OnComplete(CallNewWord);
+            }
+            else
+            {
+                Screen.sleepTimeout = SleepTimeout.SystemSetting;
+            }
+            
+            /*if (currentGameState == GameStates.STARTUP)
+            {
+                countdownText.text = "Macht euch bereit!";
+                if (GyroManager.Instance.Rotation > rotationUp || GyroManager.Instance.Rotation < rotationDown)
+                {
+                    wordText.text = "Halte das Handy aufrecht!";
+                    wordDescription.text = "";
+                }
+                else
+                {
+                    DOTween.To(() => countdownNumbers, x => countdownNumbers = x, 0, 4).OnComplete(StartGame);
+                    wordText.text = countdownNumbers.ToString();
+                    currentGameState = GameStates.PREGAME;
+                    wordDescription.text = "";
+                }
+                
+            }else if (currentGameState == GameStates.PREGAME)
+            {
+                wordText.text = countdownNumbers.ToString();
+            }
+            else if(currentGameState == GameStates.INGAME)
+            {
+                Screen.sleepTimeout = SleepTimeout.NeverSleep;
+                if (GyroManager.Instance.Rotation > rotationUp)
+                {
+                    CorrectAnswer();
+                }
+                else if (GyroManager.Instance.Rotation < rotationDown)
+                {
+                    SkipAnswer();
+                }
+            }*/
+        }
+
+        public void CorrectAnswer()
+        {
+            currentGameState = GameStates.WAIT;
+            background.DOColor(Color.green, 0.3f).OnComplete(TransferToNextWord);
+            wordText.text = "KORREKT";
+            guessedWords.Add(new WordGuessed(currentWord, true, timeLeft));
+        }
+
+        public void SkipAnswer()
+        {
+            currentGameState = GameStates.WAIT;
+            background.DOColor(Color.yellow, 0.3f).OnComplete(TransferToNextWord);
+            wordText.text = "ÜBERSPRUNGEN";
+            guessedWords.Add(new WordGuessed(currentWord, false, timeLeft));
+        }
+
+        public void TransferToNextWord()
+        {
+            currentGameState = GameStates.INGAME;
+            background.DOColor(new Color(0.2f,0.2f,0.2f), 0.5f).OnComplete(CallNewWord);
         }
 
         private void StartGame()
@@ -198,6 +284,7 @@ namespace ThemeparkQuiz
         
         public void EndGame()
         {
+            Screen.orientation = ScreenOrientation.Portrait;
             currentGameState = GameStates.PASTGAME;
             endScreen.SetActive(true);
             int totalGuessedWords = 0;
