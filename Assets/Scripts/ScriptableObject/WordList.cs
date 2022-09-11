@@ -23,6 +23,14 @@ namespace ThemeparkQuiz
         public Sprite IconSprite => iconSprite;
         public Sprite BackgroundSprite => backgroundSprite;
 
+        public WordList(string title, Sprite iconSprite, Sprite backgroundSprite, List<WordCategory> wordCategories)
+        {
+            this.title = title;
+            this.iconSprite = iconSprite;
+            this.backgroundSprite = backgroundSprite;
+            this.wordCategories = wordCategories;
+        }
+        
         public string[] GetTitles(WordTypes type)
         {
             foreach (WordCategory cat in wordCategories)

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -31,6 +30,8 @@ namespace ThemeparkQuiz
         
         private WordList[] parks;
         private Dictionary<WordList, ParkSettings> parkSettings;
+        
+        string database_data = "";
 
         private GameStates currentGameState = GameStates.PREGAME;
         private Random random;
@@ -49,7 +50,8 @@ namespace ThemeparkQuiz
             parkSettings = GameManager.ParkSettings;
             words = new List<WordEntry>();
             guessedWords = new List<WordGuessed>();
-            LoadWords();
+            WebJSONLoader loader = new WebJSONLoader();
+            loader.LoadWords();
             Rect backgroundRect = background.GetComponent<RectTransform>().rect;
             backgroundRatio.aspectRatio = backgroundRect.width / backgroundRect.height;
             timeLeft = timeForRound;
@@ -77,31 +79,12 @@ namespace ThemeparkQuiz
             }
         }
 
-        private void LoadWords()
-        {
-            foreach (WordList park in parks)
-            {
-                foreach (WordCategory cat in park.WordCategories)
-                {
-                    if (parkSettings[park].EnabledWords[cat.Type])
-                    {
-                        foreach (string entry in cat.Words)
-                        {
-                            words.Add(new WordEntry(entry, park, cat.Type));
-                        }
-                    }
-                }
-            }
-
-            words = words.OrderBy(a => random.Next()).ToList();
-        }
-
         public void CallNewWord()
         {
             if (words.Count > 0)
             {
                 WordEntry newWord = words[^1];
-                
+
                 wordText.text = newWord.word;
                 wordDescription.text = newWord.park.Title + " (" + newWord.category.GetNameSingular() + ")";
                 if (newWord.park.BackgroundSprite != null)
@@ -114,8 +97,8 @@ namespace ThemeparkQuiz
                 }
 
                 currentWord = newWord;
-                
-                words.RemoveAt(words.Count -1);
+
+                words.RemoveAt(words.Count - 1);
                 currentGameState = GameStates.INGAME;
             }
             else
@@ -125,75 +108,10 @@ namespace ThemeparkQuiz
                 currentGameState = GameStates.PASTGAME;
                 EndGame();
             }
-            
+
             currentGameState = GameStates.INGAME;
         }
 
-        /*private void DetectMovementOld()
-        {
-            if (currentGameState == GameStates.STARTUP)
-            {
-                countdownText.text = "Macht euch bereit!";
-                if (Input.deviceOrientation == DeviceOrientation.FaceDown)
-                {
-                    wordText.text = "Halte das Handy aufrecht!";
-                    wordDescription.text = "";
-                }
-                else if (Input.deviceOrientation == DeviceOrientation.FaceUp)
-                {
-                    wordText.text = "Halte das Handy aufrecht!";
-                    wordDescription.text = "";
-                }
-                else
-                {
-                    DOTween.To(() => countdownNumbers, x => countdownNumbers = x, 0, 4).OnComplete(StartGame);
-                    wordText.text = countdownNumbers.ToString();
-                    currentGameState = GameStates.PREGAME;
-                    wordDescription.text = "";
-                }
-                
-            }else if (currentGameState == GameStates.PREGAME)
-            {
-                wordText.text = countdownNumbers.ToString();
-            }
-            else if(currentGameState == GameStates.INGAME)
-            {
-                Screen.sleepTimeout = SleepTimeout.NeverSleep;
-                if (GyroManager.Instance.Rotation < rotationDown)
-                {
-                    currentGameState = GameStates.WAIT;
-                    background.DOColor(Color.green, 0.3f);
-                    wordText.text = "KORREKT";
-                    guessedWords.Add(new WordGuessed(currentWord, true, timeLeft));
-                }
-                else if (GyroManager.Instance.Rotation > rotationUp)
-                {
-                    currentGameState = GameStates.WAIT;
-                    background.DOColor(Color.yellow, 0.3f);
-                    wordText.text = "ÜBERSPRUNGEN";
-                    guessedWords.Add(new WordGuessed(currentWord, false, timeLeft));
-                }
-                else
-                {
-                }
-            }
-            else if (currentGameState == GameStates.WAIT)
-            {
-                if (GyroManager.Instance.Rotation < rotationDown || GyroManager.Instance.Rotation > rotationUp)
-                {
-                }
-                else
-                {
-                    background.DOColor(new Color(0.2f,0.2f,0.2f), 0.5f).OnComplete(CallNewWord);
-                    currentGameState = GameStates.INGAME;
-                }
-            }
-            else
-            {
-                Screen.sleepTimeout = SleepTimeout.SystemSetting;
-            }
-        }*/
-        
         private void DetectMovement()
         {
             if (currentGameState == GameStates.STARTUP)
@@ -219,39 +137,6 @@ namespace ThemeparkQuiz
             {
                 Screen.sleepTimeout = SleepTimeout.SystemSetting;
             }
-            
-            /*if (currentGameState == GameStates.STARTUP)
-            {
-                countdownText.text = "Macht euch bereit!";
-                if (GyroManager.Instance.Rotation > rotationUp || GyroManager.Instance.Rotation < rotationDown)
-                {
-                    wordText.text = "Halte das Handy aufrecht!";
-                    wordDescription.text = "";
-                }
-                else
-                {
-                    DOTween.To(() => countdownNumbers, x => countdownNumbers = x, 0, 4).OnComplete(StartGame);
-                    wordText.text = countdownNumbers.ToString();
-                    currentGameState = GameStates.PREGAME;
-                    wordDescription.text = "";
-                }
-                
-            }else if (currentGameState == GameStates.PREGAME)
-            {
-                wordText.text = countdownNumbers.ToString();
-            }
-            else if(currentGameState == GameStates.INGAME)
-            {
-                Screen.sleepTimeout = SleepTimeout.NeverSleep;
-                if (GyroManager.Instance.Rotation > rotationUp)
-                {
-                    CorrectAnswer();
-                }
-                else if (GyroManager.Instance.Rotation < rotationDown)
-                {
-                    SkipAnswer();
-                }
-            }*/
         }
 
         public void CorrectAnswer()

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "WCR7N19111009715",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 6008,
+        "processId": 6973,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -198,6 +198,12 @@
             "deviceId": "WCR7N19111009715",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 6008,
+            "exited": false
+        },
+        {
+            "deviceId": "WCR7N19111009715",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 6973,
             "exited": false
         }
     ],

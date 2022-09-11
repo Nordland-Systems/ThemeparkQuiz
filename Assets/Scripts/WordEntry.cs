@@ -1,4 +1,6 @@
 ﻿using System;
+using UnityEngine;
+using SimpleJSON;
 
 namespace ThemeparkQuiz
 {
