@@ -28,7 +28,7 @@ namespace ThemeparkQuiz
             title = listEntry.name;
             foreach (WordCategory cat in listEntry.WordCategories)
             {
-                maxNumberOfWords += cat.Words.Length;
+                maxNumberOfWords += cat.Words.Count;
             }
             numberOfWordsText.text = "(" + activatedWords + " / " + maxNumberOfWords + " Begriffe)";
             titleText.text = title;
@@ -53,7 +53,7 @@ namespace ThemeparkQuiz
             {
                 if (parkOverviewManager.ParkSettings[wordList].EnabledWords[cat.Type])
                 {
-                    activatedWords += cat.Words.Length;
+                    activatedWords += cat.Words.Count;
                 }
             }
             

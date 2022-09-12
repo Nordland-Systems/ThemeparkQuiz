@@ -13,16 +13,16 @@ namespace ThemeparkQuiz
         public Toggle DetailActive => detailActive;
 
         private WordList parkList;
-        private WordTypes type;
+        private string type;
         private ParkOverviewManager overviewManager;
 
-        public void PopulateDetail(WordList parkList, WordTypes type, ParkSettings settings, ParkOverviewManager overviewManager)
+        public void PopulateDetail(WordList parkList, string type, ParkSettings settings, ParkOverviewManager overviewManager)
         {
             this.parkList = parkList;
             this.type = type;
             this.overviewManager = overviewManager;
-            detailsTitleText.text = type.GetNamePlural();
-            wordCountText.text = " (" + parkList.GetTitles(type).Length + " Begriffe)";
+            detailsTitleText.text = type;
+            wordCountText.text = " (" + parkList.GetTitles(type).Count + " Begriffe)";
             detailActive.isOn = settings.EnabledWords[type];
         }
 

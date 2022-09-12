@@ -90,8 +90,8 @@ public class ParkOverviewManager : MonoBehaviour
             WordList[] settingKeys = parkSettings.Keys.ToArray();
             foreach (WordList setting in settingKeys)
             {
-                WordTypes[] enabledWords = parkSettings[setting].EnabledWords.Keys.ToArray();
-                foreach (WordTypes entry in enabledWords)
+                string[] enabledWords = parkSettings[setting].EnabledWords.Keys.ToArray();
+                foreach (string entry in enabledWords)
                 {
                     parkSettings[setting].EnabledWords[entry] = true;
                 }
@@ -110,8 +110,8 @@ public class ParkOverviewManager : MonoBehaviour
 
     public void SelectAll(WordList park)
     {
-        WordTypes[] enabledWords = parkSettings[park].EnabledWords.Keys.ToArray();
-        foreach (WordTypes entry in enabledWords)
+        string[] enabledWords = parkSettings[park].EnabledWords.Keys.ToArray();
+        foreach (string entry in enabledWords)
         {
             parkSettings[park].EnabledWords[entry] = true;
         }
@@ -124,8 +124,8 @@ public class ParkOverviewManager : MonoBehaviour
             WordList[] settingKeys = parkSettings.Keys.ToArray();
             foreach (WordList setting in settingKeys)
             {
-                WordTypes[] enabledWords = parkSettings[setting].EnabledWords.Keys.ToArray();
-                foreach (WordTypes entry in enabledWords)
+                string[] enabledWords = parkSettings[setting].EnabledWords.Keys.ToArray();
+                foreach (string entry in enabledWords)
                 {
                     parkSettings[setting].EnabledWords[entry] = false;
                 }
@@ -144,8 +144,8 @@ public class ParkOverviewManager : MonoBehaviour
 
     public void DeSelectAll(WordList park)
     {
-        WordTypes[] enabledWords = parkSettings[park].EnabledWords.Keys.ToArray();
-        foreach (WordTypes entry in enabledWords)
+        string[] enabledWords = parkSettings[park].EnabledWords.Keys.ToArray();
+        foreach (string entry in enabledWords)
         {
             parkSettings[park].EnabledWords[entry] = false;
         }

@@ -31,7 +31,7 @@ namespace ThemeparkQuiz
             this.wordCategories = wordCategories;
         }
         
-        public string[] GetTitles(WordTypes type)
+        public List<string> GetTitles(string type)
         {
             foreach (WordCategory cat in wordCategories)
             {
@@ -41,7 +41,7 @@ namespace ThemeparkQuiz
                 }
             }
             
-            string[] s = {title};
+            List<string> s = new List<string>(){title};
             return s;
         }
     }

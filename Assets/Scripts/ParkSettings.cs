@@ -4,18 +4,18 @@ namespace ThemeparkQuiz
 {
     public class ParkSettings
     {
-        private Dictionary<WordTypes, bool> enabledWords;
+        private Dictionary<string, bool> enabledWords;
 
         public ParkSettings(WordList list)
         {
-            enabledWords = new Dictionary<WordTypes, bool>();
+            enabledWords = new Dictionary<string, bool>();
             foreach (WordCategory cat in list.WordCategories)
             {
-                enabledWords[cat.Type] = cat.Words.Length > 0;
+                enabledWords[cat.Type] = cat.Words.Count > 0;
             }
         }
 
-        public Dictionary<WordTypes, bool> EnabledWords
+        public Dictionary<string, bool> EnabledWords
         {
             get => enabledWords;
             set => enabledWords = value;
