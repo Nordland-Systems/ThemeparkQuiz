@@ -8,8 +8,7 @@ namespace ThemeparkQuiz
 {
     public class WebJSONLoader : MonoBehaviour
     {
-        public string apiURL = "https://experiencelog.api.sp-universe.com";
-        private string experienceData = "";
+        public string locationsURL = "https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation.json";
         
         private List<WordList> wordlists = new List<WordList>();
         
@@ -21,47 +20,35 @@ namespace ThemeparkQuiz
         IEnumerator GetLocationsFromDatabase()
         {
             string locationData = "";
-            UnityWebRequest www = UnityWebRequest.Get(apiURL + "/type=ExperienceLocations");
+            UnityWebRequest www = UnityWebRequest.Get(locationsURL);
             yield return www.SendWebRequest();
             if (www.error != null)
-                Debug.Log("There was an error getting the experiences: " + www.error);
+                Debug.Log("There was an error getting the locations: " + www.error);
             else
             {
                 // Show results as text
                 locationData = www.downloadHandler.text;
             }
-            Debug.Log(experienceData);
+            Debug.Log(locationData);
 
             JSONNode locations = JSON.Parse(locationData);
 
             foreach (JSONNode location in locations)
             {
-                wordlists.Add(new WordList(location["Title"], null, null, GetExperiencesFromDatabase(location["ID"])));
+                string experiencesData = "";
+                wordlists.Add(new WordList(location["Title"], null, null, new List<WordCategory>()));
+                
+                UnityWebRequest www2 = UnityWebRequest.Get("https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation.json/" + location["ID"] + "/Experiences");
+                yield return www.SendWebRequest();
+                if (www2.error != null)
+                    Debug.Log("There was an error getting the experiences: " + www2.error);
+                else
+                {
+                    experiencesData = www2.downloadHandler.text;
+                }
+                Debug.Log(experiencesData);
+                
             }
-        }
-
-        private IEnumerator List<WordCategory> GetExperiencesFromDatabase(int locationID)
-        {
-            Dictionary<string, WordCategory> listCategories = new Dictionary<string, WordCategory>();
-            
-            string experienceData = "";
-            UnityWebRequest www = UnityWebRequest.Get(apiURL + "/type=Experience&locationid=" + locationID);
-            yield return www.SendWebRequest();
-            if (www.error != null)
-                Debug.Log("There was an error getting the experiences: " + www.error);
-            else
-            {
-                // Show results as text
-                locationData = www.downloadHandler.text;
-            }
-            Debug.Log(experienceData);
-
-            JSONNode locations = JSON.Parse(locationData);
-        }
-
-        private void CreateWordLists(string location)
-        {
-            
         }
     }
 }
