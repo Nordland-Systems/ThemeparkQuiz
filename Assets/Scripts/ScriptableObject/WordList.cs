@@ -17,7 +17,11 @@ namespace ThemeparkQuiz
         [Header("Words")]
         [SerializeField] private List<WordCategory> wordCategories;
 
-        public List<WordCategory> WordCategories => wordCategories;
+        public List<WordCategory> WordCategories
+        {
+            get => wordCategories;
+            set => wordCategories = value;
+        }
 
         public string Title => title;
         public Sprite IconSprite => iconSprite;

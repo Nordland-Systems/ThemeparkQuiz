@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SimpleJSON;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -11,8 +13,29 @@ namespace ThemeparkQuiz
     {
         public string locationsURL = "https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation.json";
         
-        private static List<WordList> wordlists = new List<WordList>();
-        
+        [SerializeField] private List<WordList> wordlists = new List<WordList>();
+        private static WebJSONLoader instance;
+
+        public static WebJSONLoader Instance => instance;
+
+        private void Awake()
+        {
+            if (instance != this && instance != null)
+            {
+                Destroy(this.GameObject());
+            }
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(this.GameObject());
+            }
+        }
+
+        private void Start()
+        {
+            LoadWords();
+        }
+
         public void LoadWords()
         {
             StartCoroutine(GetLocationsFromDatabase());
@@ -33,14 +56,17 @@ namespace ThemeparkQuiz
             Debug.Log(locationData);
 
             JSONNode locations = JSON.Parse(locationData);
+            
 
-            foreach (JSONNode location in locations)
+            foreach (JSONNode location in locations["items"])
             {
+                Debug.Log(location);
                 string experiencesData = "";
                 Dictionary<string, WordCategory> categories = new Dictionary<string, WordCategory>();
 
+                Debug.Log(location["ID"]);
                 UnityWebRequest www2 = UnityWebRequest.Get("https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation/" + location["ID"] + "/Experiences.json");
-                yield return www.SendWebRequest();
+                yield return www2.SendWebRequest();
                 if (www2.error != null)
                     Debug.Log("There was an error getting the experiences: " + www2.error);
                 else
@@ -51,7 +77,7 @@ namespace ThemeparkQuiz
 
                 JSONNode experiences = JSON.Parse(experiencesData);
 
-                foreach (JSONNode experience in experiences)
+                foreach (JSONNode experience in experiences["items"])
                 {
                     if (categories.ContainsKey(experience["type"]))
                     {
@@ -65,7 +91,9 @@ namespace ThemeparkQuiz
                 }
 
                 List<WordCategory> allCategories = categories.Values.ToList();
-                wordlists.Add(new WordList(location["Title"], null, null, new List<WordCategory>()));
+                WordList wl = ScriptableObject.CreateInstance<WordList>();
+                wl.WordCategories = allCategories;
+                wordlists.Add(wl);
             }
             
             
