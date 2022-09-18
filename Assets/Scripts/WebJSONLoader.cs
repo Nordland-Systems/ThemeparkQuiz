@@ -14,6 +14,8 @@ namespace ThemeparkQuiz
         public string locationsURL = "https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation.json";
         
         [SerializeField] private List<WordList> wordlists = new List<WordList>();
+
+        [SerializeField] private ParkOverviewManager parkOverviewManager;
         private static WebJSONLoader instance;
 
         public static WebJSONLoader Instance => instance;
@@ -29,11 +31,6 @@ namespace ThemeparkQuiz
                 instance = this;
                 DontDestroyOnLoad(this.GameObject());
             }
-        }
-
-        private void Start()
-        {
-            LoadWords();
         }
 
         public void LoadWords()
@@ -76,10 +73,13 @@ namespace ThemeparkQuiz
                 Debug.Log(experiencesData);
 
                 JSONNode experiences = JSON.Parse(experiencesData);
+                categories = new Dictionary<string, WordCategory>();
+                Debug.Log(categories);
 
                 foreach (JSONNode experience in experiences["items"])
                 {
-                    if (categories.ContainsKey(experience["type"]))
+                    Debug.Log(experience["Type"]);
+                    if (categories.ContainsKey(experience["Type"]))
                     {
                         categories[experience["Type"]].Words.Add(experience["Title"]);
                     }
@@ -93,10 +93,12 @@ namespace ThemeparkQuiz
                 List<WordCategory> allCategories = categories.Values.ToList();
                 WordList wl = ScriptableObject.CreateInstance<WordList>();
                 wl.WordCategories = allCategories;
+                wl.Title = location["Title"];
+                wl.name = location["Title"];
                 wordlists.Add(wl);
             }
-            
-            
+
+            parkOverviewManager.RepopulateList(wordlists.ToArray());
         }
     }
 }

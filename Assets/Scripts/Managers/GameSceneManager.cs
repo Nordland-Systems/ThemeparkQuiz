@@ -30,11 +30,8 @@ namespace ThemeparkQuiz
         
         private WordList[] parks;
         private Dictionary<WordList, ParkSettings> parkSettings;
-        
-        string database_data = "";
 
         private GameStates currentGameState = GameStates.PREGAME;
-        private Random random;
         private int countdownNumbers = 3;
         private float timeLeft;
         private WordEntry currentWord;
@@ -44,14 +41,11 @@ namespace ThemeparkQuiz
         {
             Screen.orientation = ScreenOrientation.LandscapeLeft;
             timeForRound = PlayerPrefs.GetInt("maxMinutes", 0) * 60 + PlayerPrefs.GetInt("maxSeconds");
-            random = new Random();
             currentGameState = GameStates.STARTUP;
-            parks = GameManager.Parks;
-            parkSettings = GameManager.ParkSettings;
+            parks = GameManager.Instance.Parks;
+            parkSettings = GameManager.Instance.ParkSettings;
             words = new List<WordEntry>();
             guessedWords = new List<WordGuessed>();
-            WebJSONLoader loader = new WebJSONLoader();
-            loader.LoadWords();
             Rect backgroundRect = background.GetComponent<RectTransform>().rect;
             backgroundRatio.aspectRatio = backgroundRect.width / backgroundRect.height;
             timeLeft = timeForRound;

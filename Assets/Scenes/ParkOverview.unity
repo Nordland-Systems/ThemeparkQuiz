@@ -378,6 +378,7 @@ MonoBehaviour:
   parkDetailsTitle: {fileID: 2013653392}
   parkDetailsPrefab: {fileID: 5931776912198021960, guid: 92428aef22d169c43906b97579df0928, type: 3}
   parkDetailsHolder: {fileID: 486438914}
+  webJsonLoader: {fileID: 320216613}
 --- !u!4 &320216612
 Transform:
   m_ObjectHideFlags: 0
@@ -407,6 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locationsURL: https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation.json
   wordlists: []
+  parkOverviewManager: {fileID: 320216611}
 --- !u!1 &426000826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,7 +2519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000076293945}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: -40, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1677016936

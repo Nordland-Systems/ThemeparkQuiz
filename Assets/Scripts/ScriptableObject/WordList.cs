@@ -23,9 +23,23 @@ namespace ThemeparkQuiz
             set => wordCategories = value;
         }
 
-        public string Title => title;
-        public Sprite IconSprite => iconSprite;
-        public Sprite BackgroundSprite => backgroundSprite;
+        public string Title
+        {
+            get => title;
+            set => title = value;
+        }
+
+        public Sprite IconSprite
+        {
+            get => iconSprite;
+            set => iconSprite = value;
+        }
+
+        public Sprite BackgroundSprite
+        {
+            get => backgroundSprite;
+            set => backgroundSprite = value;
+        }
 
         public WordList(string title, Sprite iconSprite, Sprite backgroundSprite, List<WordCategory> wordCategories)
         {

@@ -1,19 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace ThemeparkQuiz
 {
-    public static class GameManager
+    public class GameManager : MonoBehaviour
     {
-        private static WordList[] parks;
-        private static Dictionary<WordList, ParkSettings> parkSettings;
+        [SerializeField] private WordList[] parks;
+        private Dictionary<WordList, ParkSettings> parkSettings;
+        private static GameManager instance;
 
-        public static WordList[] Parks
+        public static GameManager Instance => instance;
+
+        private void OnEnable()
+        {
+            if (instance != this && instance != null)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
+            }
+        }
+
+        public WordList[] Parks
         {
             get => parks;
             set => parks = value;
         }
 
-        public static Dictionary<WordList, ParkSettings> ParkSettings
+        public Dictionary<WordList, ParkSettings> ParkSettings
         {
             get => parkSettings;
             set => parkSettings = value;

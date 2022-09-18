@@ -14,9 +14,10 @@ namespace ThemeparkQuiz
         [SerializeField] private Image parkActivatedIndicator;
         private string title;
         private ParkOverviewManager parkOverviewManager;
-        private WordList wordList;
+        [SerializeField] private WordList wordList;
         private int activatedWords = 0;
         private int maxNumberOfWords;
+        
 
         private void Update()
         {
@@ -25,7 +26,7 @@ namespace ThemeparkQuiz
 
         public void PopulateEntry(WordList listEntry, ParkOverviewManager parkOverviewManager)
         {
-            title = listEntry.name;
+            title = listEntry.Title;
             foreach (WordCategory cat in listEntry.WordCategories)
             {
                 maxNumberOfWords += cat.Words.Count;

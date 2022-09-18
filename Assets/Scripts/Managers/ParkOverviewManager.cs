@@ -18,6 +18,7 @@ public class ParkOverviewManager : MonoBehaviour
     [SerializeField] private TMP_Text parkDetailsTitle;
     [SerializeField] private GameObject parkDetailsPrefab;
     [SerializeField] private Transform parkDetailsHolder;
+    [SerializeField] private WebJSONLoader webJsonLoader;
     
     private Dictionary<WordList, ParkSettings> parkSettings;
     private WordList openDetails;
@@ -56,6 +57,31 @@ public class ParkOverviewManager : MonoBehaviour
     private void PopulateList()
     {
         foreach (WordList p in parks)
+        {
+            ParkListEntry ple = Instantiate(parkEntryPrefab, parkListHolder).GetComponent<ParkListEntry>();
+            ple.PopulateEntry(p, this);
+            parkSettings.Add(p,new ParkSettings(p));
+        }
+
+        if (webJsonLoader != null)
+        {
+            webJsonLoader.LoadWords();
+        }
+        else
+        {
+            Debug.Log("WebJsonLoader is not connected to ParkOverviewManager");
+        }
+    }
+
+    public void RepopulateList(WordList[] list)
+    {
+        parkSettings = new Dictionary<WordList, ParkSettings>();
+        parks = list;
+        foreach (Transform c in parkListHolder.transform)
+        {
+            Destroy(c.gameObject);
+        }
+        foreach (WordList p in list)
         {
             ParkListEntry ple = Instantiate(parkEntryPrefab, parkListHolder).GetComponent<ParkListEntry>();
             ple.PopulateEntry(p, this);
@@ -153,9 +179,13 @@ public class ParkOverviewManager : MonoBehaviour
 
     public void StartGame()
     {
-        GameManager.Parks = parks;
-        GameManager.ParkSettings = parkSettings;
+        Debug.Log(GameManager.Instance.ParkSettings);
+        GameManager.Instance.Parks = parks;
+        GameManager.Instance.ParkSettings = parkSettings;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+        Debug.Log(GameManager.Instance.ParkSettings);
+        Debug.Log("Parksettings Count: " + GameManager.Instance.ParkSettings.Count);
+        Debug.Log("Words Length: " + GameManager.Instance.Parks.Length);
         SceneManager.LoadScene(GameScenes.GAMESCENE);
     }
 }
