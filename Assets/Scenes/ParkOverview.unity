@@ -344,7 +344,6 @@ GameObject:
   m_Component:
   - component: {fileID: 320216612}
   - component: {fileID: 320216611}
-  - component: {fileID: 320216613}
   m_Layer: 0
   m_Name: ParkOverviewManager
   m_TagString: Untagged
@@ -378,7 +377,6 @@ MonoBehaviour:
   parkDetailsTitle: {fileID: 2013653392}
   parkDetailsPrefab: {fileID: 5931776912198021960, guid: 92428aef22d169c43906b97579df0928, type: 3}
   parkDetailsHolder: {fileID: 486438914}
-  webJsonLoader: {fileID: 320216613}
 --- !u!4 &320216612
 Transform:
   m_ObjectHideFlags: 0
@@ -394,21 +392,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &320216613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320216610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d960df289ef4897bd89a8e5b1325802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locationsURL: https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation.json
-  wordlists: []
-  parkOverviewManager: {fileID: 320216611}
 --- !u!1 &426000826
 GameObject:
   m_ObjectHideFlags: 0

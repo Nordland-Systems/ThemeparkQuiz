@@ -6,6 +6,7 @@ using SimpleJSON;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 namespace ThemeparkQuiz
 {
@@ -33,6 +34,16 @@ namespace ThemeparkQuiz
             }
         }
 
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneChangedEvent;
+        }
+        
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded += OnSceneChangedEvent;
+        }
+
         public void LoadWords()
         {
             StartCoroutine(GetLocationsFromDatabase());
@@ -50,18 +61,15 @@ namespace ThemeparkQuiz
                 // Show results as text
                 locationData = www.downloadHandler.text;
             }
-            Debug.Log(locationData);
 
             JSONNode locations = JSON.Parse(locationData);
             
 
             foreach (JSONNode location in locations["items"])
             {
-                Debug.Log(location);
                 string experiencesData = "";
                 Dictionary<string, WordCategory> categories = new Dictionary<string, WordCategory>();
 
-                Debug.Log(location["ID"]);
                 UnityWebRequest www2 = UnityWebRequest.Get("https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation/" + location["ID"] + "/Experiences.json");
                 yield return www2.SendWebRequest();
                 if (www2.error != null)
@@ -70,23 +78,21 @@ namespace ThemeparkQuiz
                 {
                     experiencesData = www2.downloadHandler.text;
                 }
-                Debug.Log(experiencesData);
 
                 JSONNode experiences = JSON.Parse(experiencesData);
                 categories = new Dictionary<string, WordCategory>();
-                Debug.Log(categories);
 
                 foreach (JSONNode experience in experiences["items"])
                 {
                     Debug.Log(experience["Type"]);
                     if (categories.ContainsKey(experience["Type"]))
                     {
-                        categories[experience["Type"]].Words.Add(experience["Title"]);
+                        categories[experience["Type"]].Words.Add(new Word(experience["Title"], null));
                     }
                     else
                     {
                         categories.Add(experience["Type"], new WordCategory(experience["Type"]));
-                        categories[experience["Type"]].Words.Add(experience["Title"]);
+                        categories[experience["Type"]].Words.Add(new Word(experience["Title"], null));
                     }
                 }
 
@@ -95,10 +101,56 @@ namespace ThemeparkQuiz
                 wl.WordCategories = allCategories;
                 wl.Title = location["Title"];
                 wl.name = location["Title"];
+                if (location["LocationIcon"] != null)
+                {
+                    UnityWebRequest imagerequest = UnityWebRequestTexture.GetTexture(location["LocationIcon"]);
+                    yield return imagerequest.SendWebRequest();
+                    if (imagerequest.isNetworkError || imagerequest.isHttpError)
+                    {
+                        Debug.Log(imagerequest.error);
+                    }
+                    else
+                    {
+                        Texture2D tex = DownloadHandlerTexture.GetContent(imagerequest);
+                        Rect rec = new Rect(0, 0, tex.width, tex.height);
+                        Sprite spr = Sprite.Create(tex,rec,new Vector2(0.5f,0.5f),100);
+                        wl.IconSprite = spr;
+                    }
+                }
+                if (location["LocationImage"] != null)
+                {
+                    UnityWebRequest backgroundrequest = UnityWebRequestTexture.GetTexture(location["LocationImage"]);
+                    yield return backgroundrequest.SendWebRequest();
+                    if (backgroundrequest.isNetworkError || backgroundrequest.isHttpError)
+                    {
+                        Debug.Log(backgroundrequest.error);
+                    }
+                    else
+                    {
+                        Texture2D tex = DownloadHandlerTexture.GetContent(backgroundrequest);
+                        Rect rec = new Rect(0, 0, tex.width, tex.height);
+                        Sprite spr = Sprite.Create(tex,rec,new Vector2(0.5f,0.5f),100);
+                        wl.BackgroundSprite = spr;
+                    }
+                }
                 wordlists.Add(wl);
             }
+            
+            ParkOverviewManager parkOverviewManager = GameObject.FindObjectOfType<ParkOverviewManager>();
+            if (parkOverviewManager != null)
+            {
+                parkOverviewManager.RepopulateList(wordlists.ToArray());
+            }
+        }
 
-            parkOverviewManager.RepopulateList(wordlists.ToArray());
+        private void OnSceneChangedEvent(Scene sceneIn, LoadSceneMode mode)
+        {
+            Debug.Log("Test");
+            ParkOverviewManager parkOverviewManager = GameObject.FindObjectOfType<ParkOverviewManager>();
+            if (parkOverviewManager != null)
+            {
+                parkOverviewManager.RepopulateList(wordlists.ToArray());
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ namespace ThemeparkQuiz
     public class WordCategory
     {
         [SerializeField] private string type;
-        [SerializeField] private List<string> words;
+        [SerializeField] private List<Word> words;
 
         public string Type
         {
@@ -16,7 +16,7 @@ namespace ThemeparkQuiz
             set => type = value;
         }
 
-        public List<string> Words
+        public List<Word> Words
         {
             get => words;
             set => words = value;
@@ -25,7 +25,7 @@ namespace ThemeparkQuiz
         public WordCategory(string type)
         {
             this.type = type;
-            words = new List<string>();
+            words = new List<Word>();
         }
     }
 }

@@ -49,6 +49,7 @@ namespace ThemeparkQuiz
             Rect backgroundRect = background.GetComponent<RectTransform>().rect;
             backgroundRatio.aspectRatio = backgroundRect.width / backgroundRect.height;
             timeLeft = timeForRound;
+            LoadWords();
         }
 
         private void Update()
@@ -73,6 +74,31 @@ namespace ThemeparkQuiz
             }
         }
 
+        private void LoadWords()
+        {
+            WordList[] allWordLists = GameManager.Instance.Parks;
+            Dictionary<WordList, ParkSettings> settings = GameManager.Instance.ParkSettings;
+
+            foreach (WordList wl in allWordLists)
+            {
+                if (settings[wl].EnabledWords.Count > 0)
+                {
+                    foreach (WordCategory wc in wl.WordCategories)
+                    {
+                        if (settings[wl].EnabledWords[wc.Type])
+                        {
+                            foreach (Word word in wc.Words)
+                            {
+                                words.Add(new WordEntry(word.Content, wl, wc.Type, word.BackgroundImage));
+                            }
+                        }
+                    }
+                }
+            }
+            
+            words.Shuffle();
+        }
+
         public void CallNewWord()
         {
             if (words.Count > 0)
@@ -80,7 +106,7 @@ namespace ThemeparkQuiz
                 WordEntry newWord = words[^1];
 
                 wordText.text = newWord.word;
-                wordDescription.text = newWord.park.Title + " (" + newWord.category.GetNameSingular() + ")";
+                wordDescription.text = newWord.park.Title + " (" + newWord.category + ")";
                 if (newWord.park.BackgroundSprite != null)
                 {
                     background.sprite = newWord.park.BackgroundSprite;
