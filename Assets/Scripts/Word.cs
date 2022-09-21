@@ -6,8 +6,8 @@ namespace ThemeparkQuiz
     [Serializable]
     public class Word
     {
-        private string content;
-        private Sprite backgroundImage;
+        public string content;
+        public Sprite backgroundImage;
 
         public string Content
         {
