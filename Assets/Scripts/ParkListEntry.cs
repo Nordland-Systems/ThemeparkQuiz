@@ -12,6 +12,7 @@ namespace ThemeparkQuiz
         [SerializeField] private Image parkIcon;
         [SerializeField] private Image parkBanner;
         [SerializeField] private Image parkActivatedIndicator;
+        [SerializeField] private Image parkActivatedIndicatorCircle;
         private string title;
         private ParkOverviewManager parkOverviewManager;
         [SerializeField] private WordList wordList;
@@ -61,13 +62,16 @@ namespace ThemeparkQuiz
             if (activatedWords <= 0)
             {
                 parkActivatedIndicator.color = Color.red;
+                parkActivatedIndicatorCircle.color = Color.red;
             } 
             else if(activatedWords < maxNumberOfWords) 
             {
                 parkActivatedIndicator.color = Color.yellow;
+                parkActivatedIndicatorCircle.color = Color.yellow;
             } 
             else {
                 parkActivatedIndicator.color = Color.green;
+                parkActivatedIndicatorCircle.color = Color.green;
             }
             
             numberOfWordsText.text = "(" + activatedWords + " / " + maxNumberOfWords + " Begriffe)";
