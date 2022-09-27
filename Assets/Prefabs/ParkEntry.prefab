@@ -904,6 +904,7 @@ GameObject:
   - component: {fileID: 4033725364586956654}
   - component: {fileID: 588003622911314436}
   - component: {fileID: 5522953719338004709}
+  - component: {fileID: 7040091742742136500}
   m_Layer: 5
   m_Name: BackgroundImage
   m_TagString: Untagged
@@ -959,7 +960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3883ab5015801254cae4e959deee034b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2c6d3ceea9760d4a90921905da21875, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -982,7 +983,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 4
-  m_AspectRatio: 1.5
+  m_AspectRatio: 0.66552734
+--- !u!114 &7040091742742136500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840988611607603899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024b6810b6394ab4999fac31faa0d158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageToCorrect: {fileID: 588003622911314436}
+  aspectRatioFitter: {fileID: 5522953719338004709}
 --- !u!1 &8198374925673000224
 GameObject:
   m_ObjectHideFlags: 0

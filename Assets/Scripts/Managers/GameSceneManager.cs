@@ -19,8 +19,8 @@ namespace ThemeparkQuiz
         [SerializeField] private List<WordEntry> words;
 
         [Header("Rotation")] 
-        [SerializeField] private float rotationUp;
-        [SerializeField] private float rotationDown;
+        [SerializeField] private Button correctButton;
+        [SerializeField] private Button skipButton;
         
         [Header("End Screen")]
         [SerializeField] private GameObject endScreen;
@@ -107,7 +107,11 @@ namespace ThemeparkQuiz
 
                 wordText.text = newWord.word;
                 wordDescription.text = newWord.park.Title + " (" + newWord.category + ")";
-                if (newWord.park.BackgroundSprite != null)
+                if (newWord.backgroundImage != null)
+                {
+                    background.sprite = newWord.backgroundImage;
+                }
+                else if (newWord.park.BackgroundSprite != null)
                 {
                     background.sprite = newWord.park.BackgroundSprite;
                 }
@@ -130,6 +134,8 @@ namespace ThemeparkQuiz
             }
 
             currentGameState = GameStates.INGAME;
+            correctButton.interactable = true;
+            skipButton.interactable = true;
         }
 
         private void DetectMovement()
@@ -161,6 +167,8 @@ namespace ThemeparkQuiz
 
         public void CorrectAnswer()
         {
+            correctButton.interactable = false;
+            skipButton.interactable = false;
             currentGameState = GameStates.WAIT;
             background.DOColor(Color.green, 0.3f).OnComplete(TransferToNextWord);
             wordText.text = "KORREKT";
@@ -169,6 +177,8 @@ namespace ThemeparkQuiz
 
         public void SkipAnswer()
         {
+            correctButton.interactable = false;
+            skipButton.interactable = false;
             currentGameState = GameStates.WAIT;
             background.DOColor(Color.yellow, 0.3f).OnComplete(TransferToNextWord);
             wordText.text = "ÜBERSPRUNGEN";

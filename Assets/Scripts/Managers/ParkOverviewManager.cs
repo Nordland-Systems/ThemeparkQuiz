@@ -80,6 +80,14 @@ public class ParkOverviewManager : MonoBehaviour
             ParkListEntry ple = Instantiate(parkEntryPrefab, parkListHolder).GetComponent<ParkListEntry>();
             ple.PopulateEntry(p, this);
             parkSettings.Add(p,new ParkSettings(p));
+
+            foreach (WordCategory wc in p.WordCategories)
+            {
+                foreach (Word w in wc.Words)
+                {
+                    StartCoroutine(w.LoadImage());
+                }
+            }
         }
     }
 

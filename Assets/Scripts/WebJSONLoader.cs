@@ -100,15 +100,19 @@ namespace ThemeparkQuiz
                 progressStatus = "Loading Experiences in " + location["Title"];
                 foreach (JSONNode experience in experiences["items"])
                 {
-                    Debug.Log(experience["Type"]);
-                    if (categories.ContainsKey(experience["Type"]))
+                    if (experience["ExperienceType"] != null)
                     {
-                        categories[experience["Type"]].Words.Add(new Word(experience["Title"], null));
-                    }
-                    else
-                    {
-                        categories.Add(experience["Type"], new WordCategory(experience["Type"]));
-                        categories[experience["Type"]].Words.Add(new Word(experience["Title"], null));
+                        Debug.Log(experience["ExperienceType"]);
+                        if (categories.ContainsKey(experience["ExperienceType"]))
+                        {
+                            categories[experience["ExperienceType"]].Words.Add(new Word(experience["Title"], experience["ExperienceImage"]));
+                        }
+                        else
+                        {
+                            categories.Add(experience["ExperienceType"],
+                                new WordCategory(experience["ExperienceType"]));
+                            categories[experience["ExperienceType"]].Words.Add(new Word(experience["Title"], null));
+                        }
                     }
                 }
 
