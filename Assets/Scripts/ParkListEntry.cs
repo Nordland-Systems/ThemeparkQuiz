@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 namespace ThemeparkQuiz
@@ -18,7 +20,6 @@ namespace ThemeparkQuiz
         [SerializeField] private WordList wordList;
         private int activatedWords = 0;
         private int maxNumberOfWords;
-        
 
         private void Update()
         {

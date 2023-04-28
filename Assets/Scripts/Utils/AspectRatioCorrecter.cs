@@ -27,7 +27,10 @@ public class AspectRatioCorrecter : MonoBehaviour
     
     private void CorrectAspectRatio(Image image)
     {
-        var ratio = image.sprite.rect.width / image.sprite.rect.height;
-        aspectRatioFitter.aspectRatio = ratio;
+        if (image)
+        {
+            var ratio = image.sprite.rect.width / image.sprite.rect.height;
+            aspectRatioFitter.aspectRatio = ratio;
+        }
     }
 }

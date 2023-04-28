@@ -12,7 +12,9 @@ namespace ThemeparkQuiz
     public class WordList : ScriptableObject
     {
         [SerializeField] private string title;
+        [SerializeField] private string iconPath;
         [SerializeField] private Sprite iconSprite;
+        [SerializeField] private string backgroundPath;
         [SerializeField] private Sprite backgroundSprite;
         [Header("Words")]
         [SerializeField] private List<WordCategory> wordCategories;
@@ -29,10 +31,22 @@ namespace ThemeparkQuiz
             set => title = value;
         }
 
+        public string IconPath
+        {
+            get => iconPath;
+            set => iconPath = value;
+        }
+
         public Sprite IconSprite
         {
             get => iconSprite;
             set => iconSprite = value;
+        }
+
+        public string BackgroundPath
+        {
+            get => backgroundPath;
+            set => backgroundPath = value;
         }
 
         public Sprite BackgroundSprite

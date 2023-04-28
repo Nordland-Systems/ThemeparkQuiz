@@ -12,20 +12,23 @@ namespace ThemeparkQuiz
 {
     public class WebJSONLoader : MonoBehaviour
     {
-        public string locationsURL = "https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation.json";
+        public string locationsURL = "https://experiencelogger.sp-universe.com/app-api/places";
+        public string experiencesURL = "https://experiencelogger.sp-universe.com/app-api/experiences";
         
-        [SerializeField] private List<WordList> wordlists = new List<WordList>();
-
-        [SerializeField] private ParkOverviewManager parkOverviewManager;
-        private static WebJSONLoader instance;
-
+        public JSONNode locationsJSON;
+        public JSONNode experiencesJSON;
+        
+        [SerializeField] private List<WordList> wordlists;
+        
         private int loadProgress = 0;
         private string progressStatus = "Loading...";
 
+        private static WebJSONLoader instance;
+
         public int LoadProgress => loadProgress;
         public string ProgressStatus => progressStatus;
-
         public static WebJSONLoader Instance => instance;
+        public List<WordList> Wordlists => wordlists;
 
         private void Awake()
         {
@@ -38,6 +41,8 @@ namespace ThemeparkQuiz
                 instance = this;
                 DontDestroyOnLoad(this.GameObject());
             }
+            
+            wordlists = new List<WordList>();
         }
 
         private void OnEnable()
@@ -57,109 +62,90 @@ namespace ThemeparkQuiz
         
         IEnumerator GetLocationsFromDatabase()
         {
+            loadProgress = 0;
+                
+            //1. Loading Locations
+            loadProgress = 10;
             progressStatus = "Loading Locations...";
-            string locationData = "";
             UnityWebRequest www = UnityWebRequest.Get(locationsURL);
             yield return www.SendWebRequest();
             if (www.result == UnityWebRequest.Result.ProtocolError)
+            {
                 Debug.Log("There was an error getting the locations: " + www.error);
+            }
             else
             {
-                // Show results as text
-                locationData = www.downloadHandler.text;
+                // Put Results in JSONNODE
+                locationsJSON = JSON.Parse(www.downloadHandler.text);
             }
-
-            JSONNode locations = JSON.Parse(locationData);
-
-            Debug.Log(locations["totalSize"]);
-            if (locations["totalSize"] != null)
+            Debug.Log(locationsJSON);
+            
+            //2. Loading Experiences
+            loadProgress = 25;
+            progressStatus = "Loading Experiences...";
+            UnityWebRequest wwwExperiences = UnityWebRequest.Get(experiencesURL);
+            yield return wwwExperiences.SendWebRequest();
+            if (wwwExperiences.result == UnityWebRequest.Result.ProtocolError)
             {
-                Debug.Log(locations["totalSize"]);
-                loadProgress = (100 / locations["totalSize"]) * 0;
+                Debug.Log("There was an error getting the experiences: " + www.error);
             }
-
+            else
+            {
+                // Put Results in JSONNODE
+                experiencesJSON = JSON.Parse(wwwExperiences.downloadHandler.text);
+            }
+    
+            //3. Creating WordLists
             int itemID = 0;
-            foreach (JSONNode location in locations["items"])
+            foreach (JSONNode location in locationsJSON["items"])
             {
-                progressStatus = "Loading Location " + location["Title"];
-                string experiencesData = "";
+                loadProgress = 50 + (50 / locationsJSON["Count"] * itemID);
+                progressStatus = "Loading Words in " + location["Title"] + "...";
+                
+                //3.1 Load location Image Paths
+                string locationIcon = location["Icon"];
+                string locationImage = location["Image"];
+                
+                //3.4 Create WordCategory and put experiences inside
                 Dictionary<string, WordCategory> categories = new Dictionary<string, WordCategory>();
-
-                UnityWebRequest www2 = UnityWebRequest.Get("https://experiencelogger.sp-universe.com/api/v1/App-ExperienceDatabase-ExperienceLocation/" + location["ID"] + "/Experiences.json");
-                yield return www2.SendWebRequest();
-                if (www.result == UnityWebRequest.Result.ProtocolError)
-                    Debug.Log("There was an error getting the experiences: " + www2.error);
-                else
+                foreach (JSONNode experience in experiencesJSON["items"])
                 {
-                    experiencesData = www2.downloadHandler.text;
-                }
-
-                JSONNode experiences = JSON.Parse(experiencesData);
-                categories = new Dictionary<string, WordCategory>();
-
-                progressStatus = "Loading Experiences in " + location["Title"];
-                foreach (JSONNode experience in experiences["items"])
-                {
-                    if (experience["ExperienceType"] != null)
+                    if (experience["Parent"]["ID"] == location["ID"])
                     {
-                        Debug.Log(experience["ExperienceType"]);
-                        if (categories.ContainsKey(experience["ExperienceType"]))
+                        if(experience["Type"] != null)
                         {
-                            categories[experience["ExperienceType"]].Words.Add(new Word(experience["Title"], experience["ExperienceImage"]));
-                        }
-                        else
-                        {
-                            categories.Add(experience["ExperienceType"],
-                                new WordCategory(experience["ExperienceType"]));
-                            categories[experience["ExperienceType"]].Words.Add(new Word(experience["Title"], null));
+                            if (categories.ContainsKey(experience["Type"]))
+                            {
+                                categories[experience["Type"]].Words.Add(new Word(experience["Title"], experience["Image"]));
+                            }
+                            else
+                            {
+                                categories.Add(experience["Type"], new WordCategory(experience["Type"]));
+                                categories[experience["Type"]].Words.Add(new Word(experience["Title"], experience["Image"]));
+                            }
                         }
                     }
                 }
 
-                List<WordCategory> allCategories = categories.Values.ToList();
+                //3.5 Convert Categories to List
+                List<WordCategory> categoriesList = new List<WordCategory>();
+                foreach (KeyValuePair<string, WordCategory> category in categories)
+                {
+                    categoriesList.Add(category.Value);
+                }
+                
+                //3.6 Create WordList
                 WordList wl = ScriptableObject.CreateInstance<WordList>();
-                wl.WordCategories = allCategories;
                 wl.Title = location["Title"];
-                wl.name = location["Title"];
-                progressStatus = "Loading Images for " + location["Title"];
-                if (location["LocationIcon"] != null)
-                {
-                    UnityWebRequest imagerequest = UnityWebRequestTexture.GetTexture(location["LocationIcon"]);
-                    yield return imagerequest.SendWebRequest();
-                    if (imagerequest.result == UnityWebRequest.Result.ProtocolError)
-                    {
-                        Debug.Log(imagerequest.error);
-                    }
-                    else
-                    {
-                        Texture2D tex = DownloadHandlerTexture.GetContent(imagerequest);
-                        Rect rec = new Rect(0, 0, tex.width, tex.height);
-                        Sprite spr = Sprite.Create(tex,rec,new Vector2(0.5f,0.5f),100);
-                        wl.IconSprite = spr;
-                    }
-                }
-                if (location["LocationImage"] != null)
-                {
-                    UnityWebRequest backgroundrequest = UnityWebRequestTexture.GetTexture(location["LocationImage"]);
-                    yield return backgroundrequest.SendWebRequest();
-                    if (backgroundrequest.result == UnityWebRequest.Result.ProtocolError)
-                    {
-                        Debug.Log(backgroundrequest.error);
-                    }
-                    else
-                    {
-                        Texture2D tex = DownloadHandlerTexture.GetContent(backgroundrequest);
-                        Rect rec = new Rect(0, 0, tex.width, tex.height);
-                        Sprite spr = Sprite.Create(tex,rec,new Vector2(0.5f,0.5f),100);
-                        wl.BackgroundSprite = spr;
-                    }
-                }
+                wl.IconPath = locationIcon;
+                wl.BackgroundPath = locationImage;
+                wl.WordCategories = categoriesList;
                 wordlists.Add(wl);
 
                 itemID += 1;
-                loadProgress = 100 / locations["totalSize"] * itemID;
             }
             
+            loadProgress = 90;
             progressStatus = "Finishing up";
             
             ParkOverviewManager parkOverviewManager = FindObjectOfType<ParkOverviewManager>();
