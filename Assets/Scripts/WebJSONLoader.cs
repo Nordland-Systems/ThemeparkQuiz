@@ -12,14 +12,15 @@ namespace ThemeparkQuiz
 {
     public class WebJSONLoader : MonoBehaviour
     {
-        public string locationsURL = "https://experiencelogger.sp-universe.com/app-api/places";
-        public string experiencesURL = "https://experiencelogger.sp-universe.com/app-api/experiences";
-        
+        public static string placesApi = "https://experiencelogger.com/app-api/places/";
+        public static string imageByIDApi = "https://experiencelogger.com/app-api/imagebyid/";
+        //public string experiencesURL = "https://experiencelogger.com/app-api/experiences/";
+
         public JSONNode locationsJSON;
         public JSONNode experiencesJSON;
-        
+
         [SerializeField] private List<WordList> wordlists;
-        
+
         private int loadProgress = 0;
         private string progressStatus = "Loading...";
 
@@ -41,7 +42,7 @@ namespace ThemeparkQuiz
                 instance = this;
                 DontDestroyOnLoad(this.GameObject());
             }
-            
+
             wordlists = new List<WordList>();
         }
 
@@ -49,7 +50,7 @@ namespace ThemeparkQuiz
         {
             SceneManager.sceneLoaded += OnSceneChangedEvent;
         }
-        
+
         private void OnDisable()
         {
             SceneManager.sceneLoaded += OnSceneChangedEvent;
@@ -59,15 +60,15 @@ namespace ThemeparkQuiz
         {
             StartCoroutine(GetLocationsFromDatabase());
         }
-        
+
         IEnumerator GetLocationsFromDatabase()
         {
             loadProgress = 0;
-                
+
             //1. Loading Locations
             loadProgress = 10;
             progressStatus = "Loading Locations...";
-            UnityWebRequest www = UnityWebRequest.Get(locationsURL);
+            UnityWebRequest www = UnityWebRequest.Get(placesApi);
             yield return www.SendWebRequest();
             if (www.result == UnityWebRequest.Result.ProtocolError)
             {
@@ -79,11 +80,11 @@ namespace ThemeparkQuiz
                 locationsJSON = JSON.Parse(www.downloadHandler.text);
             }
             Debug.Log(locationsJSON);
-            
+
             //2. Loading Experiences
             loadProgress = 25;
             progressStatus = "Loading Experiences...";
-            UnityWebRequest wwwExperiences = UnityWebRequest.Get(experiencesURL);
+            /* UnityWebRequest wwwExperiences = UnityWebRequest.Get(experiencesURL);
             yield return wwwExperiences.SendWebRequest();
             if (wwwExperiences.result == UnityWebRequest.Result.ProtocolError)
             {
@@ -93,35 +94,56 @@ namespace ThemeparkQuiz
             {
                 // Put Results in JSONNODE
                 experiencesJSON = JSON.Parse(wwwExperiences.downloadHandler.text);
-            }
-    
+            } */
+
             //3. Creating WordLists
             int itemID = 0;
-            foreach (JSONNode location in locationsJSON["items"])
+            foreach (JSONNode location in locationsJSON["Items"])
             {
                 loadProgress = 50 + (50 / locationsJSON["Count"] * itemID);
                 progressStatus = "Loading Words in " + location["Title"] + "...";
-                
+
+                string locationIcon = null;
+                string locationImage = null;
+
                 //3.1 Load location Image Paths
-                string locationIcon = location["Icon"];
-                string locationImage = location["Image"];
-                
+                if (location["IconID"] != null)
+                {
+                    locationIcon = location["IconID"];
+                }
+                if (location["ImageID"] != null)
+                {
+                    locationImage = location["ImageID"];
+                }
+
                 //3.4 Create WordCategory and put experiences inside
                 Dictionary<string, WordCategory> categories = new Dictionary<string, WordCategory>();
-                foreach (JSONNode experience in experiencesJSON["items"])
+                foreach (JSONNode experience in location["Experiences"])
                 {
-                    if (experience["Parent"]["ID"] == location["ID"])
+                    Debug.Log(experience);
+                    if (experience["ExperienceType"] != null)
                     {
-                        if(experience["Type"] != null)
+                        if (categories.ContainsKey(experience["ExperienceType"]))
                         {
-                            if (categories.ContainsKey(experience["Type"]))
+                            if (experience["ExperienceImageID"] != null)
                             {
-                                categories[experience["Type"]].Words.Add(new Word(experience["Title"], experience["Image"]));
+                                categories[experience["ExperienceType"]].Words.Add(new Word(experience["ExperienceTitle"], experience["ExperienceImageID"]));
                             }
                             else
                             {
-                                categories.Add(experience["Type"], new WordCategory(experience["Type"]));
-                                categories[experience["Type"]].Words.Add(new Word(experience["Title"], experience["Image"]));
+                                categories[experience["ExperienceType"]].Words.Add(new Word(experience["ExperienceTitle"], null));
+                            }
+                        }
+                        else
+                        {
+                            categories.Add(experience["ExperienceType"], new WordCategory(experience["ExperienceType"]));
+                            if (experience["ExperienceImageID"] != null)
+                            {
+                                categories[experience["ExperienceType"]].Words.Add(new Word(experience["ExperienceTitle"], experience["ExperienceImageID"]));
+                            }
+                            else
+                            {
+                                categories[experience["ExperienceType"]].Words.Add(new Word(experience["ExperienceTitle"], null));
                             }
                         }
                     }
@@ -133,7 +155,7 @@ namespace ThemeparkQuiz
                 {
                     categoriesList.Add(category.Value);
                 }
-                
+
                 //3.6 Create WordList
                 WordList wl = ScriptableObject.CreateInstance<WordList>();
                 wl.Title = location["Title"];
@@ -144,10 +166,10 @@ namespace ThemeparkQuiz
 
                 itemID += 1;
             }
-            
+
             loadProgress = 90;
             progressStatus = "Finishing up";
-            
+
             ParkOverviewManager parkOverviewManager = FindObjectOfType<ParkOverviewManager>();
             if (parkOverviewManager != null)
             {
@@ -163,6 +185,29 @@ namespace ThemeparkQuiz
             if (parkOverviewManager != null)
             {
                 parkOverviewManager.RepopulateList(wordlists.ToArray());
+            }
+        }
+
+        public static string GetImagePathFromAPIById(string id)
+        {
+            string url = imageByIDApi + id;
+            Debug.Log("Getting image from: " + url);
+            UnityWebRequest www = UnityWebRequest.Get(url);
+            www.SendWebRequest();
+            while (!www.isDone)
+            {
+                //Wait
+            }
+
+            if (www.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.Log("There was an error getting the image: " + www.error);
+                return null;
+            }
+            else
+            {
+                Debug.Log("Image: " + www.downloadHandler.text);
+                return www.downloadHandler.text;
             }
         }
     }

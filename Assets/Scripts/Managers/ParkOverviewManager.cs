@@ -18,7 +18,7 @@ public class ParkOverviewManager : MonoBehaviour
     [SerializeField] private TMP_Text parkDetailsTitle;
     [SerializeField] private GameObject parkDetailsPrefab;
     [SerializeField] private Transform parkDetailsHolder;
-    
+
     private Dictionary<WordList, ParkSettings> parkSettings;
     private WordList openDetails;
     private List<Toggle> openDetailToggles;
@@ -63,7 +63,7 @@ public class ParkOverviewManager : MonoBehaviour
         {
             ParkListEntry ple = Instantiate(parkEntryPrefab, parkListHolder).GetComponent<ParkListEntry>();
             ple.PopulateEntry(p, this);
-            parkSettings.Add(p,new ParkSettings(p));
+            parkSettings.Add(p, new ParkSettings(p));
         }
     }
 
@@ -79,13 +79,13 @@ public class ParkOverviewManager : MonoBehaviour
         {
             ParkListEntry ple = Instantiate(parkEntryPrefab, parkListHolder).GetComponent<ParkListEntry>();
             ple.PopulateEntry(p, this);
-            parkSettings.Add(p,new ParkSettings(p));
+            parkSettings.Add(p, new ParkSettings(p));
 
             foreach (WordCategory wc in p.WordCategories)
             {
                 foreach (Word w in wc.Words)
                 {
-                    StartCoroutine(w.LoadImage());
+                    //w.LoadImageAsync(); LoadImageAsync is not implemented in Word.cs
                 }
             }
         }
@@ -106,7 +106,7 @@ public class ParkOverviewManager : MonoBehaviour
             details.PopulateDetail(listEntry, cat.Type, parkSettings[listEntry], this);
             openDetailToggles.Add(details.DetailActive);
         }
-        
+
         parkDetailsTitle.text = listEntry.Title;
         parkDetails.SetActive(true);
     }
@@ -128,7 +128,7 @@ public class ParkOverviewManager : MonoBehaviour
         else
         {
             SelectAll(openDetails);
-            
+
             foreach (Toggle tgl in openDetailToggles)
             {
                 tgl.isOn = true;
@@ -144,7 +144,7 @@ public class ParkOverviewManager : MonoBehaviour
             parkSettings[park].EnabledWords[entry] = true;
         }
     }
-    
+
     public void DeSelectAll()
     {
         if (!parkDetails.activeInHierarchy)
@@ -162,7 +162,7 @@ public class ParkOverviewManager : MonoBehaviour
         else
         {
             DeSelectAll(openDetails);
-            
+
             foreach (Toggle tgl in openDetailToggles)
             {
                 tgl.isOn = false;
